@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+    </head>
+        <meta charset="UTF-8">
+	    <title>Location information</title>
+    </head>
+    <body>
+	    <h1>Oras {{city}} </h1>
+        <h3>Data locala: {{date}}</h3>
+        <h3>Ora locala: {{time}}</h3>
+	    <h2>Temperatura: {{temperature}}°C</h2>
+        <form method="POST" action="/location_informations">
+			Location : <input type="text" name="location" placeholder="street name and number">
+			<input type="submit">
+		</form>
+    </body>
+</html>
