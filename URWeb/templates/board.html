@@ -1,20 +1,176 @@
-
+<!DOCTYPE html>
 <html>
   <head>
-      <title>Geolocation</title>
-      <meta charset="utf-8">
-      <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
-
-
-      <style>
-         @import url('../static/css/board.css');
-      </style>
-
-
+    <title>Geolocation</title>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <script type="text/javascript" src="../U%20R%20Web/static/js/map.js"></script>
+    <style>
+      div.container{
+margin-top:5px;
+margin-bottom:5px;
+width:100%;
+display: flex;
+}
+div.left{
+padding:0;
+margin:0;
+width:100%;
+text-align: left;
+}
+div.center{
+padding:0;
+margin-left:2px;
+margin-right:2px;
+width:100%;
+text-align: center;
+}
+div.right{
+padding:0;
+margin:0;
+width:100%;
+text-align: right;
+}
+      .dropbtn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+.dropbtn:hover, .dropbtn:focus {
+    background-color: #3e8e41;
+}
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    overflow: auto;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+.dropdown a:hover {background-color: #f1f1f1}
+.show {display:block;}
+      /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+      #map {
+        height: 100%;
+      }
+      /* Optional: Makes the sample page fill the window. */
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+body {
+    font-family: "Lato", sans-serif;
+}
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+}
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s
+}
+.sidenav a:hover, .offcanvas a:focus{
+    color: #f1f1f1;
+}
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+    </style>
   </head>
-  <body>
-    <div id="map"></div>
+  <body style="background-color: #7af43d">
+    <div class="container">
+      <div id="filtre" class="left">
+      <div id="mySidenav" class="sidenav">
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+      <div class="dropdown">
+        <button onclick="myFunction()" class="dropbtn">Arie de cautare</button>
+          <div id="myDropdown" class="dropdown-content">
+            <a href="#home">Mica</a>
+            <a href="#about">Medie</a>
+            <a href="#contact">Mare</a>
+  </div>
         <script>
+/* When the user clicks on the button,
+toggle between hiding and showing the dropdown content */
+function myFunction() {
+    document.getElementById("myDropdown").classList.toggle("show");
+}
+// Close the dropdown if the user clicks outside of it
+window.onclick = function(event) {
+  if (!event.target.matches('.dropbtn')) {
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
+</script>
+</div>
+    </div>
+      <span style="font-size:20px;cursor:pointer" onclick="openNav()">&#9776; Filtre de cautare</span>
+      <script>
+function openNav() {
+    document.getElementById("mySidenav").style.width = "250px";
+}
+function closeNav() {
+    document.getElementById("mySidenav").style.width = "0";
+}
+</script>
+    </div>
+      <div id="search" class="center">
+        <div class="input-group">
+          <input type="text" class="form-control" placeholder="Search for..." size="50">
+          <span class="input-group-btn">
+            <button class="btn btn-default" type="button">Cauta</button>
+          </span>
+        </div><!-- /input-group -->
+    </div>
+      <div id="opt" class="right">Optiuni</div>
+    </div>
+
+
+    <div id="map"></div>
+    <script>
       // Note: This example requires that you consent to location sharing when
       // prompted by your browser. If you see the error "The Geolocation service
       // failed.", it means you probably did not give permission for the browser to
@@ -50,7 +206,6 @@
                               'Error: Your browser doesn\'t support geolocation.');
       }
     </script>
-    <script src="../static/js/map.js" defer></script>
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBx-eHAzWip3GDruCiK3eRu5zsw7GZZ61w&callback=initMap"></script>
   </body>
 </html>
