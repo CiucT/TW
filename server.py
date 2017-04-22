@@ -3,7 +3,8 @@ from URWeb import *
 from flask import Flask, render_template
 app = Flask('URWeb')
 app.config['SECRET_KEY'] ='random'
-
+app.Debug=False
+app.Testing=False
 port=80
 host='127.0.0.1'
 
