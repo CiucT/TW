@@ -4,6 +4,10 @@
       <title>Geolocation</title>
       <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
       <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <!--       <link rel="stylesheet" type="text/css" href="../static/css/board.css"> -->
       <script async defer src="../static/js/map.js"></script>
       <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBx-eHAzWip3GDruCiK3eRu5zsw7GZZ61w&callback=initMap"></script>
@@ -23,168 +27,328 @@
         padding: 0;
       }
 body {
-    font-family: "Lato", sans-serif;
+    font-size: 16px;
+    font-family: "Open Sans",Arial,sans-serif;
 }
 .dropdown {
     position: relative;
+    font-size: 16px;
+    font-family: "Open Sans",Arial,sans-serif;
 }
-
-.dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #a5c7ff;
-    min-width: 70px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
-    text-align: left;
-    float:left;
-    height: 100px;
-    overflow-y: auto;
-    height: 100px;
+.dropdown-menu{
+    background-color: #1f3251;
 }
-.dropdown:hover .dropdown-content {
-    display: block;
+.btn-primary{
+    background-color: #101928;
+    border-color: #101928;
+}
+.dropdown-menu>li>a {
+   color:white;
+}
+ .open>.dropdown-toggle.btn-primary:focus, .open>.dropdown-toggle.btn-primary:hover {
+  background-color: #101928;
+  border-color: #101928;
+}
+.open>.dropdown-toggle.btn-primary {
+  background-color: #101928;
+  border-color: #101928;
+}
+.btn-primary:focus {
+  background-color: #101928;
+  border-color: #101928;
+}
+.btn-primary:hover {
+  background-color: #101928;
+  border-color: #101928;
 }
 table, td, th{
   border-collapse: collapse;
-  border: 1px solid black;
+  color: white;
+  text-align: center;
+}
+.border-radius td:first-child {
+    border-left-style: solid;
+    border-top-left-radius: 10px; 
+    border-bottom-left-radius: 10px;
+}
+.border-radius td:last-child {
+    border-right-style: solid;
+    border-bottom-right-radius: 10px; 
+    border-top-right-radius: 10px; 
 }
 .menu{
-  background: #4286f4;
+  background: #101928;
   text-align: center;
+}
+a{
+  color:white;
 }
 </style>
 <body>
-    <table width="1350" height="640">
-      <tr style="background: #4286f4;" width="1360" height="40">
+    <table width="1360" height="650">
+      <tr style="background: #101928;" width="1360" height="60">
         <th><span style="font-size:20px;cursor:pointer">Filtre de cautare</span></th>
         <th>
           <div>
               <div >
                 <input type="text" placeholder="Search for..." size="50">
                 <span >
-                  <button type="button">Cauta</button>
+                  <button type="button" style="background-color: #1f3251">Cauta</button>
                 </span>
               </div>
           </div>
         </th>
-        <th> Optiuni</th>
+        <th>
+          <div class="dropdown">
+            <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Optiuni
+            <span class="caret"></span></button>
+            <ul class="dropdown-menu">
+              <li><a href="#">Contul meu</a></li>
+              <li><a href="#">Cautarile mele</a></li>
+              <li><a href="#">Setari</a></li>
+              <li><a href="#">Iesire</a></li>
+            </ul>
+          </div>
+        </th>
+      </tr>
+      <tr>
+        <td class = "menu" height="40"> </td>
+        <td colspan="2" rowspan="5" class="border-radius"><div id="map"></div></td>
       </tr>
       <tr>
         <td class = "menu" height="40">
           <div class="dropdown">
-            <span>Oras</span>
-            <div class="dropdown-content">
+            <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Oras
+            <span class="caret"></span></button>
+            <ul class="dropdown-menu" style="overflow-y:scroll; height:200px;">
+            <li>
               <input type="radio" name="group1" value="mica" id="item1">
                 <label for="item1">Alba</label></input></br>
+            </li>
+            <li>
               <input type="radio" name="group1" value="medie" id="item2">
                 <label for="item2">Argeș</label></input></br>
+            </li>
+            <li>
               <input type="radio" name="group1" value="mare" id="item3">
                 <label for="item3">Arad</label></input></br>
+            </li>
+            <li>
               <input type="radio" name="group1" value="mare" id="item3">
                 <label for="item3">București</label></input></br>
+            </li>
+            <li>
               <input type="radio" name="group1" value="mare" id="item3">
                 <label for="item3">Bacău</label></input></br>
+            </li>
+            <li>
               <input type="radio" name="group1" value="mare" id="item3">
                 <label for="item3">Bârlad</label></input></br>
+            </li>
+            <li>
               <input type="radio" name="group1" value="mare" id="item3">
                 <label for="item3">Bistriţa</label></input></br>
+            </li>
+            <li>
               <input type="radio" name="group1" value="mare" id="item3">
                 <label for="item3">Bihor</label></input></br>
+            </li>
+            <li>
               <input type="radio" name="group1" value="mare" id="item3">
                 <label for="item3">Bistrița-Năsăud</label></input></br>
+            </li>
+            <li>
               <input type="radio" name="group1" value="mare" id="item3">
                 <label for="item3">Brăila</label></input></br>
+            </li>
+            <li>
               <input type="radio" name="group1" value="mica" id="item1">
                 <label for="item1">Botoșani</label></input></br>
+            </li>
+            <li>
               <input type="radio" name="group1" value="medie" id="item2">
                 <label for="item2">Brașov</label></input></br>
+            </li>
+            <li>
               <input type="radio" name="group1" value="mare" id="item3">
                 <label for="item3">Buzău</label></input></br>
+            </li>
+            <li>
               <input type="radio" name="group1" value="mare" id="item3">
                 <label for="item3">Cluj</label></input></br>
+            </li>
+            <li>
               <input type="radio" name="group1" value="mare" id="item3">
                 <label for="item3">Călărași</label></input></br>
+            </li>
+            <li>
               <input type="radio" name="group1" value="mare" id="item3">
                 <label for="item3">Caraș-Severin</label></input></br>
+            </li>
+            <li>
               <input type="radio" name="group1" value="mare" id="item3">
                 <label for="item3">Constanța</label></input></br>
+            </li>
+            <li>
               <input type="radio" name="group1" value="mare" id="item3">
                 <label for="item3">Covasna</label></input></br>
+            </li>
+            <li>
               <input type="radio" name="group1" value="mare" id="item3">
                 <label for="item3">Dâmbovița</label></input></br>
+            </li>
+            <li>
               <input type="radio" name="group1" value="mare" id="item3">
                 <label for="item3">Dolj</label></input></br>
+            </li>
+            <li>
               <input type="radio" name="group1" value="mica" id="item1">
                 <label for="item1">Gorj</label></input></br>
+            </li>
+            <li>
               <input type="radio" name="group1" value="medie" id="item2">
                 <label for="item2">Galați</label></input></br>
+            </li>
+            <li>
               <input type="radio" name="group1" value="mare" id="item3">
                 <label for="item3">Giurgiu</label></input></br>
+            </li>
+            <li>
               <input type="radio" name="group1" value="mare" id="item3">
                 <label for="item3">Hunedoara</label></input></br>
+            </li>
+            <li>
               <input type="radio" name="group1" value="mare" id="item3">
                 <label for="item3">Harghita</label></input></br>
+            </li>
+            <li>
               <input type="radio" name="group1" value="mare" id="item3">
                 <label for="item3">Ilfov</label></input></br>
+            </li>
+            <li>
               <input type="radio" name="group1" value="mare" id="item3">
                 <label for="item3">Ialomița</label></input></br>
+            </li>
+            <li>
               <input type="radio" name="group1" value="mare" id="item3">
                 <label for="item3">Iași</label></input></br>
+            </li>
+            <li>
               <input type="radio" name="group1" value="mare" id="item3">
                 <label for="item3">Mehedinți</label></input></br>
+            </li>
+            <li>
               <input type="radio" name="group1" value="mare" id="item3">
                 <label for="item3">Maramureș</label></input></br>
+            </li>
+            <li>
               <input type="radio" name="group1" value="mica" id="item1">
                 <label for="item1">Mureș</label></input></br>
+            </li>
+            <li>
               <input type="radio" name="group1" value="medie" id="item2">
                 <label for="item2">Neamț</label></input></br>
+            </li>
+            <li>
               <input type="radio" name="group1" value="mare" id="item3">
                 <label for="item3">Olt</label></input></br>
+            </li>
+            <li>
               <input type="radio" name="group1" value="mare" id="item3">
                 <label for="item3">Prahova</label></input></br>
+            </li>
+            <li>
               <input type="radio" name="group1" value="mare" id="item3">
                 <label for="item3">Sibiu</label></input></br>
+            </li>
+            <li>
               <input type="radio" name="group1" value="mare" id="item3">
                 <label for="item3">Sălaj</label></input></br>
+            </li>
+            <li>
               <input type="radio" name="group1" value="mare" id="item3">
                 <label for="item3">Satu Mare</label></input></br>
+            </li>
+            <li>
               <input type="radio" name="group1" value="mare" id="item3">
                 <label for="item3">Suceava</label></input></br>
+            </li>
+            <li>
               <input type="radio" name="group1" value="mare" id="item3">
                 <label for="item3">Tulcea</label></input></br>
+            </li>
+            <li>
               <input type="radio" name="group1" value="mare" id="item3">
                 <label for="item3">Timiș</label></input></br>
+            </li>
+            <li>
               <input type="radio" name="group1" value="mare" id="item3">
                 <label for="item3">Teleorman</label></input></br>
+            </li>
+            <li>
               <input type="radio" name="group1" value="mare" id="item3">
                 <label for="item3">Vâlcea</label></input></br>
+            </li>
+            <li>
               <input type="radio" name="group1" value="mare" id="item3">
                 <label for="item3">Vrancea</label></input></br>
+            </li>
+            <li>
               <input type="radio" name="group1" value="mare" id="item3">
                 <label for="item3">Vaslui</label></input>
+            </li>
+          </ul>
             </div>
           </div>
         </td>
-        <td colspan="2" rowspan="4"><div id="map"></div></td>
       </tr>
       <tr>
         <td class = "menu" height="40">
             <div class="dropdown">
-              <span>Arie de cautare</span>
-                <div class="dropdown-content">
+            <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Arie de cautare<span class="caret"></span></button>
+            <ul class="dropdown-menu">
+                <li>
                   <input type="radio" name="group1" value="mica" id="item1">
                   <label for="item1">Mica</label></input></br>
+                </li>
+                <li>
                   <input type="radio" name="group1" value="medie" id="item2">
                   <label for="item2">Medie</label></input></br>
+                </li>
+                <li>
                   <input type="radio" name="group1" value="mare" id="item3">
                   <label for="item3">Mare</label></input>
-                </div>
+                </li>
+            </ul>
             </div>
         </td>
       </tr>
-      <tr><td class = "menu" height="40">Locatii</td></tr>
-      <tr><td class = "menu"> </td></tr>
+      <tr><td class = "menu" height="40"><div class="dropdown">
+            <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Locatii<span class="caret"></span></button>
+            <ul class="dropdown-menu">
+                <li>
+                  <input type="radio" name="group1" value="mica" id="item1">
+                  <label for="item1">Restaurante</label></input></br>
+                </li>
+                <li>
+                  <input type="radio" name="group1" value="mare" id="item3">
+                  <label for="item3">Spitale</label></input>
+                </li>
+                <li>
+                  <input type="radio" name="group1" value="mica" id="item1">
+                  <label for="item1">Parcuri</label></input></br>
+                </li>
+                <li>
+                  <input type="radio" name="group1" value="mare" id="item3">
+                  <label for="item3">Centre de invatamant</label></input>
+                </li>
+                <li>
+                  <input type="radio" name="group1" value="mare" id="item3">
+                  <label for="item3">Centru comercial</label></input>
+                </li>
+            </ul>
+      </td></tr>
+      <tr><td class = "menu" style="vertical-align: bottom;"><a href="#">Contact</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#">Despre noi</a></td></tr>
     </table>
   </body>
 </html>
