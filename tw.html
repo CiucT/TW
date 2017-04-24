@@ -1,0 +1,198 @@
+
+<!DOCTYPE html>
+
+<html lang="ro"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+	<meta name="viewport" content="width=device-width">
+	<title>Raportul Proiectului U R Web</title>
+	<link rel="stylesheet" href="scholarly.css">
+	<link rel="stylesheet" href="prism-coy.css">
+	<script src="prism.js" defer=""></script>
+</head>
+<body prefix="schema: http://schema.org/ xsd: http://www.w3.org/2001/XMLSchema# sa: https://ns.science.ai/">
+<header>
+	<p class="title">U R Web</p>
+	<p class="subtitle">GeoLocation</p>
+</header>
+	<article id="what" typeof="schema:ScholarlyArticle" resource="#">
+		<h1>U R Web Project</h1>
+		<section>
+			<ol>
+				<li property="schema:author" typeof="sa:ContributorRole">
+					<a property="schema:author" href="https://students.info.uaic.ro/~lavinia.tiba" typeof="schema:Person">
+						<span property="schema:givenName">Tiba</span>
+						<span property="schema:familyName">Lavinia-Maria</span>
+					</a>
+				</li>
+				<li property="schema:contributor" typeof="sa:ContributorRole">
+					<a property="schema:contributor" href="https://students.info.uaic.ro/~tiberiu.ciuc" typeof="schema:Person">
+						<span property="schema:givenName">Ciuc</span>
+						<span property="schema:familyName">Tiberiu</span>
+					</a>
+				</li>
+				<li property="schema:contributor" typeof="sa:ContributorRole">
+					<a property="schema:contributor" href="https://students.info.uaic.ro/~bianca.rusu" typeof="schema:Person">
+						<span property="schema:givenName">Rusu Zamfirache</span>
+						<span property="schema:familyName">Bianca</span>
+					</a>
+				</li>
+
+
+                <li property="schema:contributor" typeof="sa:ContributorRole">
+					<a property="schema:contributor" href="https://students.info.uaic.ro/~georgiana.trofin" typeof="schema:Person">
+						<span property="schema:givenName">Trofin</span>
+						<span property="schema:familyName">Georgiana-Elena</span>
+					</a>
+				</li>
+
+
+			</ol>
+		</section>
+
+		<section>
+			<h3>Cuprins:</h3>
+			<ol>
+				<li> <a href="#Introducere"> Introducere  </a></li>
+<li> <a href="#Tehnologii"> Tehnologii utilizate  </a></li>
+<li> <a href="#Arhitectura">  Arhitectura  </a></li>
+<li> <a href="#Detalii"> Detalii Implementare  </a></li>
+<li> <a href="#Concluzii"> Concluzii  </a></li>
+<li> <a href="#Webografie"> Webografie  </a></li>
+			</ol>
+		</section>
+	
+		<section typeof="sa:Abstract">
+		<a name="Introducere"></a>
+		<h3>1) Introducere</h3>
+
+		Folosind informațiile privind hărțile oferite de Google Maps și locații predefinite(ex. spitale,centre comerciale,morgi,parcuri,locatii turistice) , se dorește implementarea unui instrument Web care să recomande unui utilizator ce dorește să viziteze,să se plimbe, să ia cina ori alte activități zilnice posibile unui om într-un oraș ales de el.
+Utilizatorul va putea fi unic identificat cu ajutorul logarii prin intermediul propriului cont Facebook, de la care se vor lua informații legate de locațiile deja vizitate sau apreciate.
+Se vor putea lua în calcul propria locație, locurile deja vizitate din istoricul  Check-in sau apreciate de pe Facebook sau chiar a propriului cont U R Web.
+Sistemul va putea oferi informații despre locație și va putea propune rute optime către destinația deja aleasă. 
+
+		</section>
+		
+		<section typeof="sa:Results">
+		<a name="Tehnologii"></a>
+		<h3>2) Tehnologii utilizate</h3>
+
+		<p>
+
+Pentru implementare proiectului vom folosi HyperText Transfer Protocol bazat pe stiva de protocoale TCP/IP , un protocol fiabil de tip cerere/raspuns ce foloseste ca port standard de acces, portul 80. Focalizat asupra performantei, HTTP/2.0 este dezvoltat din varianta 1.1 , fiind standardizat si introdus pe majoritatea browserelor in anul 2015. 
+O altă tehnologie utilizată vor fi bazele de date MySQL . Acestea reprezină o modalitate de stocare a unor informații și date pe un suport extern ( un dispozitiv de stocare), cu posibilitatea extinderii ușoare și a regăsirii rapide a acestora. 
+Interfata Web va consta din incarcarea in paginile HTML a elementelor de design din CSS cu ajutorul Boostrap si JQuery, sustinute de arhitectura in limbajul Python data de microframeworkuld Flask.
+
+</p>
+		</section>
+
+		<section typeof="sa:Results">
+		<a name="Arhitectura"></a>
+		<h3>3) Arhitectura</h3>
+
+		<p>
+Aplicația va folosi o arhitectură de tipul CLIENT/SERVER TCP concurent. Serverul va primi cererile de conectari de la clienți,după care va oferi acestora posibilitatea de a se loga sau de a se înregistra prin intermediul contului de Facebook.
+ Dacă logarea eșuează, clientului îi se va propune încercarea de reconectare către server sau de a se înregistra . La înregistrare, se va verifica dacă clientul cu același nume nu există deja în baza de date, și în caz că nu , datele acestuia vor fi adăugate în baza de date. 
+Clientul se poate loga ,iar daca logare se termina cu succes se va accesa pagina home. Pe pagina Home se vor putea accesa functionalitatile aplicatiei noastre. Printre acestea se regasesc : pagina principala stanga,  se face o cautare pe baza tuturor informatiilor dorite de utilizator, pagina principala dreapta , Optiuni : Contul meu(informatii despre utilizator,ex:email,nume, id),Cautarile mele(istoricul cautarilor efectuate pana acum), Optiuni (in care se va putea bifa/debifa daca se va tine cont de fostele cautari )  si Iesire pentru delogare. In partea de footer se va regasi  Contact pentru feedback si informatii suplimentare. In cazul accesarii in partea de cautare, se va trimite o cerere catre server ,iar pe baza informatiilor primite se va face o cautare in baza de date. Printr-un formular html se vor trimite cu ajutorul metodei POST  , informatiile vor fi cautate in baza de date. Daca informatiile au fost gasite de API-ul nostru, se va afisa ruta si la o selectare a unei singure locatii se vor afisa informatii despre locatia selectata . Printr-un formular html se vor trimite cu ajutorul metodei POST , informatiile vor fi cautate in baza de date. Daca informatiile au fost gasite in baza de date se va afisa lista de destinatii posibile.
+
+
+
+</p>
+<br><br>
+<figure typeof="sa:Image">
+		<center> Diagrama MVC <p><img src="diagramamvc.png" alt="Diagrama MVC" width="40%"/></p></center>
+		</figure>
+
+
+		
+
+		
+		<section typeof="sa:Results">
+		<a name="Detalii"></a>
+		<h3>4) Detalii De implementare</h3>
+
+		<p>
+
+Dupa accesarea adresei , va aparea meniul de login . Odata ce datele au fost introduse in meniul de login cu ajutorul contului de Facebook existent, se va face o interogare in baza de date daca userul exista,iar daca nu se returneaza nici un row la introducerea datelor,se va semnala o eroare . In caz contrar, userul va fi redirectionat catre pagina de meniu. 
+
+
+</p>
+
+
+
+
+
+
+<h4> 4.1 Baza de Date </h4>
+
+<figure typeof="sa:Image">
+		<center>Diagrama BD<p><img src="diagramabd.png" alt="Diagrama Baze de Date-Server" width="60%"/></p> Diagrama BD</center>
+		</figure>
+
+<h5>  Tabele in DB </h5>
+		<figure typeof="sa:Image">
+		<center>Tabela Facebook<p><img src="tabfb.png" alt="Tabela Facebook" width="50%"/></p> </center>
+		</figure>
+		<figure typeof="sa:Image">
+		<center>Tabela Istoric<p><img src="tabhistory.png" alt="Tabela Istoric" width="50%"/></p></center>
+		</figure>
+		<figure typeof="sa:Image">
+		<center>Tabela Users<p><img src="tabusers.png" alt="Tabela Users" width="0%"/></p></center>
+		</figure>
+
+
+		</section>
+<h4> Interfata actuala</h4>
+
+<figure typeof="sa:Image">
+		<center><p><img src="1.png" alt="1" width="90%"/></p> </center>
+		<center><p><img src="2.png" alt="2" width="90%"/></p> </center>
+		<center><p><img src="3.png" alt="3" width="90%"/></p> </center>
+		<center><p><img src="4.png" alt="4" width="90%"/></p> </center>
+		<center><p><img src="5.png" alt="5" width="90%"/></p> </center>
+		</figure>
+
+
+<section typeof="sa:ReferenceList">
+		<a name="Concluzii"></a>
+
+
+
+
+<h3> 5) Concluzii </h3>
+<p>
+
+ Aplicatia va respecta toate cerintele mentionate la informatii. Cu toate acestea, vom putea include si cateva lucruri suplimentare. Fiecare utilizator , va avea un cont. Acest cont va retine toate calatoriile utilizatorului.
+
+</p>
+
+
+
+</section>
+
+		<section typeof="sa:ReferenceList">
+		<a name="Webografie"></a>
+		<h3>Webografie</h3>
+
+		<ul>
+			<li> <a href="https://developers.google.com/places/web-service/"> Google Places API Web Service </a> </li>
+<li> <a href="http://flask.pocoo.org/docs/0.10/.latex/Flask.pdf" > Flask </a> </li>
+<li> <a href="http://profs.info.uaic.ro/~busaco/teach/courses"> Cursuri TW </a> </li>
+<li> <a href="https://developers.facebook.com/"> Facebook API</a> </li>
+
+
+
+
+
+		</ul>
+		</section>
+	</article>
+    <footer>
+      <p>
+        <a href="http://www.info.uaic.ro/bin/Main/">FII</a>
+		•
+        <a href="http://profs.info.uaic.ro/~busaco/teach/courses/web/">Tehnologii Web</a>
+        •
+		 <a href="http://profs.info.uaic.ro/~busaco/teach/courses/web/projects/xml-transform.php?pag=projects">Proiecte</a>
+      </p>
+    </footer>
+</body></html>
