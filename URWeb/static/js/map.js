@@ -4,15 +4,13 @@
 // locate you.
 
 function initMap() {
+    var myLatLng = {lat: 27.5329686, lng:47.1725517};
     var map = new google.maps.Map(document.getElementById('map'), {
-        center: {lat: -34.397, lng: 150.644},
+        center:myLatLng,
         zoom: 6,
-        style: {featureType: 'road.highway',
-               elementType: 'labels.icon',
-               stylers: [{hue: '#000'}, {saturation: 100}, {lightness: 50}]
-               }
     });
     var infoWindow = new google.maps.InfoWindow({map: map});
+
 
     // Try HTML5 geolocation.
     if (navigator.geolocation) {
@@ -22,9 +20,17 @@ function initMap() {
                 lng: position.coords.longitude
             };
 
-            infoWindow.setPosition(pos);
-            infoWindow.setContent('Location found.');
+            //infoWindow.setPosition(pos); setarea pinului cu chenarul alb cu chenarul alb
+            //infoWindow.setContent('Location found.'); textul din chenarul alb
             map.setCenter(pos);
+
+            //pinul rosu ( marker)
+            var marker = new google.maps.Marker({
+                position: pos,
+                map: map,
+                title: 'My location'
+            });
+
         }, function () {
             handleLocationError(true, infoWindow, map.getCenter());
         });
