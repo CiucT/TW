@@ -1,4 +1,5 @@
-FB.init({
+window.fbAsyncInit = function() {
+  FB.init({
   appId: '419512185089420', // Your app id
   apiKey: '5646cecf9effba7e810d28c577248570',
   channelUrl : 'http://localhost', // Your channel url
@@ -6,6 +7,7 @@ FB.init({
   status: true,
   cookie: true,
 });
+};
 
 function fbAuthUser() {
     FB.login(checkLoginStatus);
