@@ -1,4 +1,4 @@
-  div.container{
+div.container{
 margin-top:5px;
 margin-bottom:5px;
 width:100%;
@@ -102,4 +102,74 @@ body {
 @media screen and (max-height: 450px) {
   .sidenav {padding-top: 15px;}
   .sidenav a {font-size: 18px;}
+}
+
+.show {display:block;}
+      /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+      #map {
+        height: 100%;
+      }
+      /* Optional: Makes the sample page fill the window. */
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+body {
+    font-size: 16px;
+    font-family: "Open Sans",Arial,sans-serif;
+}
+.dropdown {
+    position: relative;
+    font-size: 16px;
+    font-family: "Open Sans",Arial,sans-serif;
+}
+.dropdown-menu{
+    background-color: #1f3251;
+}
+.btn-primary{
+    background-color: #101928;
+    border-color: #101928;
+}
+.dropdown-menu>li>a {
+   color:white;
+}
+ .open>.dropdown-toggle.btn-primary:focus, .open>.dropdown-toggle.btn-primary:hover {
+  background-color: #101928;
+  border-color: #101928;
+}
+.open>.dropdown-toggle.btn-primary {
+  background-color: #101928;
+  border-color: #101928;
+}
+.btn-primary:focus {
+  background-color: #101928;
+  border-color: #101928;
+}
+.btn-primary:hover {
+  background-color: #101928;
+  border-color: #101928;
+}
+table, td, th{
+  border-collapse: collapse;
+  color: white;
+  text-align: center;
+}
+.border-radius td:first-child {
+    border-left-style: solid;
+    border-top-left-radius: 10px; 
+    border-bottom-left-radius: 10px;
+}
+.border-radius td:last-child {
+    border-right-style: solid;
+    border-bottom-right-radius: 10px; 
+    border-top-right-radius: 10px; 
+}
+.menu{
+  background: #101928;
+  text-align: center;
+}
+a{
+  color:white;
 }

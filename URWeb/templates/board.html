@@ -6,84 +6,16 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+      <link rel="stylesheet" href="{{ url_for('static', filename='css/board.css') }}" />
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <!--       <link rel="stylesheet" type="text/css" href="../static/css/board.css"> -->
       <script async defer src="../static/js/map.js"></script>
       <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBx-eHAzWip3GDruCiK3eRu5zsw7GZZ61w&callback=initMap"></script>
+      <script async defer src="{{ url_for('static', filename='js/facebookLogin.js') }}"></script>
+      <script src="//connect.facebook.net/en_US/all.js"></script>
 
   </head>
-<style>
-.show {display:block;}
-      /* Always set the map height explicitly to define the size of the div
-       * element that contains the map. */
-      #map {
-        height: 100%;
-      }
-      /* Optional: Makes the sample page fill the window. */
-      html, body {
-        height: 100%;
-        margin: 0;
-        padding: 0;
-      }
-body {
-    font-size: 16px;
-    font-family: "Open Sans",Arial,sans-serif;
-}
-.dropdown {
-    position: relative;
-    font-size: 16px;
-    font-family: "Open Sans",Arial,sans-serif;
-}
-.dropdown-menu{
-    background-color: #1f3251;
-}
-.btn-primary{
-    background-color: #101928;
-    border-color: #101928;
-}
-.dropdown-menu>li>a {
-   color:white;
-}
- .open>.dropdown-toggle.btn-primary:focus, .open>.dropdown-toggle.btn-primary:hover {
-  background-color: #101928;
-  border-color: #101928;
-}
-.open>.dropdown-toggle.btn-primary {
-  background-color: #101928;
-  border-color: #101928;
-}
-.btn-primary:focus {
-  background-color: #101928;
-  border-color: #101928;
-}
-.btn-primary:hover {
-  background-color: #101928;
-  border-color: #101928;
-}
-table, td, th{
-  border-collapse: collapse;
-  color: white;
-  text-align: center;
-}
-.border-radius td:first-child {
-    border-left-style: solid;
-    border-top-left-radius: 10px; 
-    border-bottom-left-radius: 10px;
-}
-.border-radius td:last-child {
-    border-right-style: solid;
-    border-bottom-right-radius: 10px; 
-    border-top-right-radius: 10px; 
-}
-.menu{
-  background: #101928;
-  text-align: center;
-}
-a{
-  color:white;
-}
-</style>
 <body>
     <table width="1360" height="650">
       <tr style="background: #101928;" width="1360" height="60">
@@ -106,7 +38,7 @@ a{
               <li><a href="#">Contul meu</a></li>
               <li><a href="#">Cautarile mele</a></li>
               <li><a href="#">Setari</a></li>
-              <li><a href="#">Iesire</a></li>
+              <li><button onclick="LogoutFacebook();">Iesire</button></li>
             </ul>
           </div>
         </th>
