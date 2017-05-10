@@ -12,7 +12,9 @@
 <!--       <link rel="stylesheet" type="text/css" href="../static/css/board.css"> -->
       <script async defer src="../static/js/map.js"></script>
       <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBx-eHAzWip3GDruCiK3eRu5zsw7GZZ61w&callback=initMap"></script>
-      <script async defer src="{{ url_for('static', filename='js/facebookLogin.js') }}"></script>
+      <script type="text/javascript" src="http://connect.facebook.net/en_US/all.js"></script>
+      <script async defer src="{{ url_for('static', filename='js/fac.js') }}"></script>
+      
 
   </head>
 <body>
@@ -25,6 +27,8 @@
                 <input type="text" placeholder="Search for..." size="50">
                 <span >
                   <button type="button" style="background-color: #1f3251">Cauta</button>
+                  <p style="position: center;">Welcome, <div id ="inputFname">d</div>
+                  <img id="profilePic" src=""/></p>
                 </span>
               </div>
           </div>
