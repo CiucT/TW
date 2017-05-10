@@ -39,7 +39,7 @@
                   <div class="top-nav s-12 l-10 right">
                      <p class="nav-text">Custom menu text</p>
                      <ul class="right">
-                        <li><a href="index.html">Acasa</a></li>
+                        <li><a href="{{ url_for('index') }}">Acasa</a></li>
                         <li>
                            <a>Despre</a>
                            <ul>
@@ -69,9 +69,43 @@
                              <br>
                              <br>
                              <br>
-                             <form action="/action_page.php">
-                                <input type="image" src="http://puu.sh/vskg9/cd968e27bc.png" alt="Submit">
-                            </form>
+<div id="fb-root"></div>
+<script src="//connect.facebook.net/en_US/all.js"></script>
+<script type="text/javascript">
+// Initialize the Facebook JavaScript SDK
+FB.init({
+  appId: '419512185089420', // Your app id
+  apiKey: '5646cecf9effba7e810d28c577248570',
+  channelUrl : 'http://localhost', // Your channel url
+  xfbml: true,
+  status: true,
+  cookie: true,
+});
+
+function fbAuthUser() {
+    FB.login(checkLoginStatus);
+}
+
+function checkLoginStatus(response) {
+    if(response && response.status == 'connected') {
+        document.getElementById("fb").checked = true
+    } else {
+        document.getElementById("fb").checked = false
+    }
+}
+
+FB.Event.subscribe('auth.login', function () {
+          window.location.href = "{{ url_for('board') }}";
+ });
+
+function LogoutFacebook(){
+FB.logout(function(response) {
+  // user is now logged out
+});
+}
+</script>
+                                <input onclick="fbAuthUser();" type="image" src="http://puu.sh/vskg9/cd968e27bc.png" alt="Submit">
+                                <button onclick="LogoutFacebook();"> Log out</button>
                          </div>
                      </div>
                   </div>
