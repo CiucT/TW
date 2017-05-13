@@ -3,11 +3,9 @@ from flask import Flask, render_template
 app = Flask('URWeb')
 app.config['SECRET_KEY'] ='random'
 app.Testing=True
-port=5000
+port=80
 host='localhost'
-urls = (
-  '/hello', 'Index', 'Board'
-)
+urls = ('/hello', 'Index', 'Board')
 
 @app.route('/')
 def index():
@@ -17,5 +15,4 @@ def index():
 def board():
     return render_template('board.html')
 
-if __name__=='__main__':
-    app.run(host='0.0.0.0', port=5000,debug=False)
+
