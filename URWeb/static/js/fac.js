@@ -9,7 +9,7 @@
 });
 
   FB.Event.subscribe('auth.login', function () {
-          window.location.href = "{{ url_for('.board') }}";
+          window.location.href = "localhost/board";
  });
 
 function fbAuthUser() {
