@@ -2,14 +2,14 @@
   FB.init({
   appId: '419512185089420', // Your app id
   apiKey: '5646cecf9effba7e810d28c577248570',
-  channelUrl : 'http://localhost', // Your channel url
+  channelUrl : 'https://localhost', // Your channel url
   xfbml: true,
   status: true,
   cookie: true,
 });
 
   FB.Event.subscribe('auth.login', function () {
-          window.location.href = "localhost/board";
+          window.location.href = "board";
  });
 
 function fbAuthUser() {
