@@ -8,9 +8,9 @@
   cookie: true,
 });
 
-  FB.Event.subscribe('auth.login', function () {
-          window.location.href = "board";
- });
+ //  FB.Event.subscribe('auth.login', function () {
+ //          window.location.href = "board";
+ // });
 
 function fbAuthUser() {
     FB.login(checkLoginStatus);
@@ -33,4 +33,13 @@ function LogoutFacebook(){
 FB.logout(function(response) {
   // user is now logged out
 });
+}
+
+function Redirect() {
+  $('form').submit(function(){
+    $.post('http://localhost/', function() {
+      window.location = 'board.html';
+    });
+    return false;
+  });
 }

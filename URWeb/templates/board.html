@@ -6,15 +6,12 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-      <link rel="stylesheet" href="{{ url_for('static', filename='css/board.css') }}" />
+      <link rel="stylesheet" href="../static/css/board.css" />
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <!--       <link rel="stylesheet" type="text/css" href="../static/css/board.css"> -->
       <script async defer src="../static/js/map.js"></script>
       <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBx-eHAzWip3GDruCiK3eRu5zsw7GZZ61w&callback=initMap"></script>
-      <script type="text/javascript" src="http://connect.facebook.net/en_US/all.js"></script>
-      <script async defer src="{{ url_for('static', filename='js/fac.js') }}"></script>
-      
 
   </head>
 <body>
@@ -41,7 +38,7 @@
               <li><a href="#">Contul meu</a></li>
               <li><a href="#">Cautarile mele</a></li>
               <li><a href="#">Setari</a></li>
-              <li><button onclick="LogoutFacebook();">Iesire</button></li>
+              <li><a href="URWeb/model/facebook_login_with_php/logout.php">Iesire</a></li>
             </ul>
           </div>
         </th>
