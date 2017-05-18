@@ -17,6 +17,7 @@ include_once("URWeb/model/facebook_login_with_php/config.php");
   $response = $fb->get('/me?fields=id,name,email,first_name,last_name', $access_token);
   $me = $response->getGraphUser();
   $name = $me->getProperty('name');
+  $id = $me->getProperty('id');
   $output = ' ' . $name;
 ?>
 <!DOCTYPE html>
@@ -52,7 +53,7 @@ include_once("URWeb/model/facebook_login_with_php/config.php");
         </th>
         <th>
           <div class="dropdown">
-            <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Optiuni
+            <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown"><img src="//graph.facebook.com/<?php echo $id ?>/picture">  Optiuni
             <span class="caret"></span></button>
             <ul class="dropdown-menu">
               <li><a href="#">Contul meu</a></li>
