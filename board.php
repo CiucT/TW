@@ -1,3 +1,3 @@
  <?php
- include("URWeb/templates/board.html")
+ include("URWeb/templates/board.php")
  ?>

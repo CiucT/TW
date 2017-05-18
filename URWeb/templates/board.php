@@ -1,3 +1,24 @@
+<?php
+include_once("URWeb/model/facebook_login_with_php/config.php");
+  $code = $_GET['code'];
+  $client_id = '419512185089420';
+  $redirect_uri = 'http://localhost/Tw/board.php';
+  $client_secret = '5646cecf9effba7e810d28c577248570';
+  $acces = "client_id=".$client_id."&redirect_uri=".$redirect_uri."&client_secret=".$client_secret."&code=".$code;
+  $access_token_url = "https://graph.facebook.com/v2.5/oauth/access_token?".$acces;
+  // $access_token = "EAAF9i0rFbYwBAGGsNu0wbtlTHpFG9k7hjfPOdcgO6G3dkjZBFFBDN03hKDID3SZBkBPZAUYq99QxZAGEmuQRnHzwaygGRhMQBYB851E49RwcHMMuXtwa5IJaCzbq8aGPmgZCmWURpLKwFlCgTrMFiaYZCZCvmTaaFlZAF0rzHGdL6QZDZD";
+  $acces_token_xml = file_get_contents($access_token_url);
+  $json_a = json_decode($acces_token_xml, true);
+  $array = array();
+  foreach ($json_a as $k => $v) {
+   array_push($array,$v);
+}
+  $access_token = $array[0];
+  $response = $fb->get('/me?fields=id,name,email,first_name,last_name', $access_token);
+  $me = $response->getGraphUser();
+  $name = $me->getProperty('name');
+  $output = ' ' . $name;
+?>
 <!DOCTYPE html>
 <html>
   <head>
@@ -6,11 +27,11 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-      <link rel="stylesheet" href="../static/css/board.css" />
+      <link rel="stylesheet" href="URWeb/static/css/board.css" />
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <!--       <link rel="stylesheet" type="text/css" href="../static/css/board.css"> -->
-      <script async defer src="../static/js/map.js"></script>
+      <script async defer src="URWeb/static/js/map.js"></script>
       <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBx-eHAzWip3GDruCiK3eRu5zsw7GZZ61w&callback=initMap"></script>
 
   </head>
@@ -24,8 +45,7 @@
                 <input type="text" placeholder="Search for..." size="50">
                 <span >
                   <button type="button" style="background-color: #1f3251">Cauta</button>
-                  <p style="position: center;">Welcome, <div id ="inputFname">d</div>
-                  <img id="profilePic" src=""/></p>
+                  <p style="position: center;">Welcome,<?php echo $output; ?>!</p>
                 </span>
               </div>
           </div>
