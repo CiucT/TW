@@ -1,5 +1,6 @@
 <?php
 include_once("URWeb/model/facebook_login_with_php/config.php");
+include 'URWeb/model/facebook_login_with_php/includes/functions.php';
   $code = $_GET['code'];
   $client_id = '419512185089420';
   $redirect_uri = 'http://localhost/Tw/board.php';
@@ -16,9 +17,16 @@ include_once("URWeb/model/facebook_login_with_php/config.php");
   $access_token = $array[0];
   $response = $fb->get('/me?fields=id,name,email,first_name,last_name', $access_token);
   $me = $response->getGraphUser();
-  $name = $me->getProperty('name');
+  $name =$me->getProperty('name');
   $id = $me->getProperty('id');
   $output = ' ' . $name;
+  $name_split = explode(" ", $name);
+  $first_name = $name_split[0];
+  $last_name = $name_split[1];
+  $email = $me->getProperty("email");
+  $cm = conexiune_mysql();
+  $sql = "INSERT INTO facebook_users (`id`, `first_name`, `last_name`, `e_mail`, `likes`) VALUES (".$id.", '".$first_name."', '".$last_name."','".$email."', NULL)";
+  mysqli_query($cm, $sql)or die(mysqli_error($cm));
 ?>
 <!DOCTYPE html>
 <html>

@@ -1,14 +1,16 @@
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "URWeb";
+function conexiune_mysql($host = 'localhost', $user = 'root', $pass = 'urweb16', $db = 'URWeb') {
+	$cm = mysqli_connect($host, $user, $pass, $db);
 
-// Create connection
-$conn = new mysqli($servername, $username, $password);
+	if (!$cm) {
+		throw new Exception(mysqli_error($cm));
+	}
 
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-} 
-echo "Connected successfully";
+	if (!mysqli_set_charset($cm, 'utf8')) {
+		throw new Exception('Nu pot seta codarea caracterelor la UTF-8.');
+	}
+	
+	return $cm;
+
+}
 ?>
