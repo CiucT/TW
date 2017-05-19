@@ -12,8 +12,8 @@ include 'URWeb/model/facebook_login_with_php/includes/functions.php';
   $json_a = json_decode($acces_token_xml, true);
   $array = array();
   foreach ($json_a as $k => $v) {
-   array_push($array,$v);
-}
+    array_push($array,$v);
+  }
   $access_token = $array[0];
   $response = $fb->get('/me?fields=id,name,email,first_name,last_name', $access_token);
   $me = $response->getGraphUser();
@@ -25,8 +25,16 @@ include 'URWeb/model/facebook_login_with_php/includes/functions.php';
   $last_name = $name_split[1];
   $email = $me->getProperty("email");
   $cm = conexiune_mysql();
-  $sql = "INSERT INTO facebook_users (`id`, `first_name`, `last_name`, `e_mail`, `likes`) VALUES (".$id.", '".$first_name."', '".$last_name."','".$email."', NULL)";
-  mysqli_query($cm, $sql)or die(mysqli_error($cm));
+  $sql_verify = "select id from facebook_users where id = '".$id."';";
+  $result = mysqli_query($cm, $sql_verify)or die(mysqli_error($cm));
+  while ($row = mysqli_fetch_assoc($result)) {
+    $res = $row['id'];
+}
+  if($res == ""){
+    $sql = "INSERT INTO facebook_users (`id`, `first_name`, `last_name`, `e_mail`, `likes`) VALUES (".$id.", '".$first_name."', '".$last_name."','".$email."', NULL)";
+    mysqli_query($cm, $sql)or die(mysqli_error($cm));
+  }
+
 ?>
 <!DOCTYPE html>
 <html>
