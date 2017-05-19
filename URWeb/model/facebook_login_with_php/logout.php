@@ -1,12 +1,15 @@
-<?php 
+<?php
 session_start();            //start session
 $_SESSION = array();    //clear session array
 session_destroy();      //destroy session
+header( 'Location: http://localhost/Tw/index.php' ) ;
 ?>
+<!--
 <!doctype html>
 <html>
 <head>
 <meta charset="utf-8">
+<meta http-equiv="refresh" content="=0;URL=http://localhost/Tw/index.php" />
 <title>Log Out</title>
 </head>
 
@@ -16,3 +19,4 @@ session_destroy();      //destroy session
 
 </body>
 </html>
+-->
