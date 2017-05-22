@@ -27,7 +27,9 @@ CREATE TABLE `facebook_users` (
   `first_name` varchar(50) DEFAULT NULL,
   `last_name` varchar(50) DEFAULT NULL,
   `e_mail` varchar(50) DEFAULT NULL,
-  `likes` varchar(50) DEFAULT NULL
+  `likes` varchar(50) DEFAULT NULL,
+  `profile_pic` varchar(100) DEFAULT NULL,
+  UNIQUE KEY `id` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -37,7 +39,7 @@ CREATE TABLE `facebook_users` (
 
 LOCK TABLES `facebook_users` WRITE;
 /*!40000 ALTER TABLE `facebook_users` DISABLE KEYS */;
-INSERT INTO `facebook_users` VALUES ('1478509985553171','Bianca','Rusu','rusu.bianca16@yahoo.com',NULL);
+INSERT INTO `facebook_users` VALUES ('1478509985553171','Bianca','Rusu','rusu.bianca16@yahoo.com',NULL,'//graph.facebook.com/1478509985553171/picture');
 /*!40000 ALTER TABLE `facebook_users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -50,4 +52,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-05-19 16:54:28
+-- Dump completed on 2017-05-22 16:02:12
