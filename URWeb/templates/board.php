@@ -40,7 +40,7 @@ if (!isset($_SESSION['previousVisitor'])){
     while ($row = mysqli_fetch_assoc($result)) {
       $res = $row['id'];
     }
-    if($res == ""){
+    if(!isset($res)){
       $sql = "INSERT INTO facebook_users (`id`, `first_name`, `last_name`, `e_mail`, `likes`, `profile_pic`) VALUES (".$id.", '".$first_name."', '".$last_name."','".$email."', NULL, '".$profile_pic."')";
       mysqli_query($cm, $sql)or die(mysqli_error($cm));
     } 
