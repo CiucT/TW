@@ -1,0 +1,68 @@
+body{
+
+	width: 98.7%;
+	height: 100%;
+}
+
+header p.title {
+    width: 120px;
+    border: 5px soft gray;
+    margin: 0; 
+
+    font-size: 32px;
+    margin-top: 16px;
+}
+header p.title{
+    max-width: 900px;
+    padding: 0 10px;
+    font-variant: small-caps;
+    margin: 0 auto;
+}* {
+    box-sizing: border-box;
+}
+element.style {
+}
+@media screen and (max-width: 979px)
+article {
+    width: 100%;
+    
+}
+article {
+	font-family: "Times New Roman", Georgia, Serif;
+    padding: 88px 88px 72px 108px;
+    background: AntiqueWhite;
+    border-top: 22px solid transparent;
+    border-right: 20px solid transparent;
+    border-bottom: 8px solid transparent;
+    border-left: 4px solid transparent;
+    border-image: url('card-bg.png') 30 30 10 6 repeat;
+    font-size: 18px;
+
+
+}
+body > section, article {
+    padding: 0 10px;
+    margin: 0 auto 120px auto;
+    max-width: 900px;
+}
+article, figcaption, figure, header, section {
+    display: block;
+}
+* {
+    box-sizing: border-box;
+}
+
+article, header, section {
+    display: block;
+}
+
+body {
+    font-family: "Times New Roman", Georgia, Serif;
+    background: Beige;
+    color: Black;
+}
+Inherited from html
+html {
+    font-family: "Times New Roman", Georgia, Serif;
+    
+}
