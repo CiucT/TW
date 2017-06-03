@@ -22,7 +22,7 @@ if(!$user){
        <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
        <meta charset="utf-8">
        <meta name="viewport" content="width=device-width, initial-scale=1">
-       <link rel="stylesheet" href="URWeb                                /static/css/components.css">
+       <link rel="stylesheet" href="URWeb/static/css/components.css">
        <link rel="stylesheet" href="URWeb/static/css/icons.css">
        <link rel="stylesheet" href="URWeb/static/css/responsee.css">
        <!-- CUSTOM STYLE -->
