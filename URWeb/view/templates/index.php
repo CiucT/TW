@@ -1,3 +1,6 @@
+<?php
+include_once("URWeb/controller/login.php");
+?>
 <!DOCTYPE html>
 <html lang="en-US">
    <head>
@@ -5,18 +8,16 @@
        <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
        <meta charset="utf-8">
        <meta name="viewport" content="width=device-width, initial-scale=1">
-       <link rel="stylesheet" href="{{ url_for('static', filename='css/components.css') }}">
-       <link rel="stylesheet" href="{{ url_for('static', filename='css/icons.css') }}">
-       <link rel="stylesheet" href="{{ url_for('static', filename='css/responsee.css') }}">
+       <link rel="stylesheet" href="URWeb/static/css/components.css">
+       <link rel="stylesheet" href="URWeb/static/css/icons.css">
+       <link rel="stylesheet" href="URWeb/static/css/responsee.css">
        <!-- CUSTOM STYLE -->
-       <link rel="stylesheet" href="{{ url_for('static', filename='css/template-style.css') }}"">
-       <link rel="stylesheet" href="{{ url_for('static', filename='css/position_and_font.css') }}">
+       <link rel="stylesheet" href="URWeb/static/css/template-style.css">
+       <link rel="stylesheet" href="URWeb/static/css/position_and_font.css">
        <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> -->
        <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
-       <script async defer type="text/javascript" src="{{ url_for('static', filename='js/jquery-1.8.3.min.js') }}"></script>
-       <script async defer type="text/javascript" src="{{ url_for('static', filename='js/jquery-ui.min.js') }}"></script>
-        <script type="text/javascript" src="http://connect.facebook.net/en_US/all.js"></script>
-       <script async defer src="{{ url_for('static', filename='js/c.js') }}"></script>
+       <script async defer type="text/javascript" src="URWeb/static/js/jquery-1.8.3.min.js"></script>
+       <script async defer type="text/javascript" src="URWeb/static/js/jquery-ui.min.js"></script>
    </head>
    <body class="size-1140">
       <div id="all-content" class="with-sticky-footer">
@@ -61,7 +62,7 @@
                              <br>
                              <br>
                              <br>
-                                <input onclick="fbAuthUser();" type="image" src="http://puu.sh/vskg9/cd968e27bc.png" alt="Submit">
+                                <?php echo $output; ?>
                          </div>
                      </div>
                   </div>
@@ -71,5 +72,5 @@
       </div>
       <script async defer type="text/javascript" src="../static/js/responsee.js"></script>
 
-   </body>
+</body>
 </html>
