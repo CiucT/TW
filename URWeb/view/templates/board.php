@@ -24,9 +24,11 @@ include_once("URWeb/controller/fb_date.php");
         <th>
           <div>
               <div >
-                <input type="text" placeholder="Search for..." size="50">
+                <form action="search.php" method="post">
+                  <input type="text" placeholder="Search for..." style="color:black;" size="50" name="search_box">
+                  <input type="submit" value="Cauta" style="background-color: #1f3251">
+                </form>
                 <span >
-                  <button type="button" style="background-color: #1f3251">Cauta</button>
                   <p style="position: center;">Welcome, <?php echo $name; ?>!</p>
                 </span>
               </div>
