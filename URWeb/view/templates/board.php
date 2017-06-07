@@ -9,11 +9,11 @@ include_once("URWeb/controller/fb_date.php");
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-      <link rel="stylesheet" href="URWeb/static/css/board.css" />
+      <link rel="stylesheet" href="URWeb/view/static/css/board.css" />
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <!--       <link rel="stylesheet" type="text/css" href="../static/css/board.css"> -->
-      <script async defer src="URWeb/static/js/map.js"></script>
+      <script async defer src="URWeb/view/static/js/map.js"></script>
       <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBx-eHAzWip3GDruCiK3eRu5zsw7GZZ61w&callback=initMap"></script>
 
   </head>
