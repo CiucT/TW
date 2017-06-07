@@ -1,13 +1,11 @@
 <?php
-
 session_start();
 include_once("URWeb/model/facebook_login_with_php/config.php");
 include 'connect_mysql.php';
-
 // if (!isset($_SESSION['previousVisitor']))
 //     $_SESSION['previousVisitor'] = true;
 
-if (!isset($_SESSION['previousVisitor'])){
+if (($_SESSION['previousVisitor'])==false){
     $_SESSION['previousVisitor'] = true;
     $code = $_GET['code'];
     $client_id = '419512185089420';
@@ -48,6 +46,7 @@ if (!isset($_SESSION['previousVisitor'])){
       $sql = "INSERT INTO facebook_users (`id`, `first_name`, `last_name`, `e_mail`, `likes`, `profile_pic`) VALUES (".$id.", '".$first_name."', '".$last_name."','".$email."', NULL, '".$profile_pic."')";
       mysqli_query($cm, $sql)or die(mysqli_error($cm));
     } 
+    header('Refresh: 0; url=http://localhost/Tw/board.php');
 }else{
     $cm = conexiune_mysql();
     $sql_verify = "select * from facebook_users where id = '".$_SESSION['id']."';";

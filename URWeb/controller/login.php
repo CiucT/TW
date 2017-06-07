@@ -13,5 +13,5 @@ if(!$user){
   $me = $response->getGraphUser();
   $name = $me->getProperty('name');
 }
-
+$_SESSION['previousVisitor'] = false;
 ?>
