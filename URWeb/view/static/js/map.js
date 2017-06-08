@@ -2,6 +2,9 @@
 // prompted by your browser. If you see the error "The Geolocation service
 // failed.", it means you probably did not give permission for the browser to
 // locate you.
+function reqListener () {
+  console.log(this.responseText);
+}
 
 function initMap() {
     var myLatLng = {lat: 27.5329686, lng:47.1725517};
