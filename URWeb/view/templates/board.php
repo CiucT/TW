@@ -18,7 +18,11 @@ include_once("URWeb/controller/search.php");
 <!--       <link rel="stylesheet" type="text/css" href="../static/css/board.css"> -->
       <script async defer src="URWeb/view/static/js/map.js"></script>
       <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBx-eHAzWip3GDruCiK3eRu5zsw7GZZ61w&callback=initMap"></script>
-
+<script>
+function pop_up(url){
+  window.open(url,'win2','status=no,toolbar=no,scrollbars=yes,titlebar=no,menubar=no,resizable=yes,width=700,height=400,directories=no,location=no') 
+}
+</script>
   </head>
 <body>
     <table width="1360" height="650">
@@ -43,7 +47,7 @@ include_once("URWeb/controller/search.php");
             <span class="caret"></span></button>
             <ul class="dropdown-menu">
               <li><a href="contulmeu.php">Contul meu</a></li>
-              <li><a href="URWeb/view/templates/cautarile_mele.php">Cautarile mele</a></li>
+              <li><a href="#" onclick="pop_up('URWeb/view/templates/cautarile_mele.php')">Cautarile mele</a></li>
               <li><a href="#">Setari</a></li>
               <li><a href="URWeb/controller/logout.php">Iesire</a></li>
             </ul>
