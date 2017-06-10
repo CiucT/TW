@@ -15,6 +15,7 @@ class Location{
   public $description="";
   public $id="";
   public $place_id="";
+  public $address="";
   public $loc;
 }
 
@@ -39,6 +40,7 @@ if($_POST['search_box']){
     $location->place_id=$places->predictions[$i]->place_id;
     $geocode_encoded=file_get_contents('https://maps.googleapis.com/maps/api/geocode/json?place_id='.$location->place_id.'&key=AIzaSyCks8-DgdPi5MLSJDSJUhbLoPrQe10GOCg');
     $geocode=json_decode($geocode_encoded);
+    $location->address=$geocode->results[0]->formatted_address;
     $location->loc=new Local_lat_and_lng();
     $location->loc->lat=$geocode->results[0]->geometry->location->lat;
     $location->loc->lng=$geocode->results[0]->geometry->location->lng;
@@ -46,7 +48,7 @@ if($_POST['search_box']){
   }
 
 
-
+  echo json_encode($Locations);
   /*
   echo "<pre>";
   print_r($Locations);

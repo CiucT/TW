@@ -1,3 +1,3 @@
 <?php
-include("search.php")
+include("search.php") 
 ?>
