@@ -1,5 +1,5 @@
 <?php
-//error_reporting(0);
+error_reporting(0);
 include_once("URWeb/controller/fb_date.php");
 include_once("URWeb/controller/search.php");
 ?>
@@ -291,7 +291,7 @@ function pop_up(url){
                 </li>
             </ul>
       </td></tr>
-      <tr><td class = "menu" style="vertical-align: bottom;"><a href="http://students.info.uaic.ro/~georgiana.trofin/urweb/tw.html">Contact</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="aboutus.html">Despre noi</a></td></tr>
+      <tr><td class = "menu" style="vertical-align: bottom;"><a href="http://students.info.uaic.ro/~georgiana.trofin/urweb/tw.html" target="_blank">Contact</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="URWeb/view/templates/aboutus.html" target="_blank">Despre noi</a></td></tr>
     </table>
   </body>
 </html>

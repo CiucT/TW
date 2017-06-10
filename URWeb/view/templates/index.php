@@ -36,11 +36,11 @@ include_once("URWeb/controller/login.php");
                         <li>
                            <a>Despre</a>
                            <ul>
-                              <li><a href="aboutus.html">Noi</a></li>
-                              <li><a href="http://students.info.uaic.ro/~georgiana.trofin/urweb/tw.html">Proiect</a></li>
+                              <li><a href="URWeb/view/templates/aboutus.html" target="_blank">Noi</a></li>
+                              <li><a href="http://students.info.uaic.ro/~georgiana.trofin/urweb/tw.html" target="_blank">Proiect</a></li>
                            </ul>
                         </li>
-                        <li><a href="https://profs.info.uaic.ro/~busaco/teach/courses/web/">Tehnologii Web</a></li>
+                        <li><a href="https://profs.info.uaic.ro/~busaco/teach/courses/web/" target="_blank">Tehnologii Web</a></li>
                      </ul>
                   </div>
                </div>
