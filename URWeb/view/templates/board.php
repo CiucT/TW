@@ -1,5 +1,6 @@
 <?php
 include_once("URWeb/controller/fb_date.php");
+include_once("URWeb/controller/search.php");
 ?>
 <!DOCTYPE html>
 <html>
@@ -24,12 +25,12 @@ include_once("URWeb/controller/fb_date.php");
         <th>
           <div>
               <div >
-                <form action="search.php" method="post">
-                  <input type="text" placeholder="Search for..." style="color:black;" size="50" name="search_box">
+                <form action="board.php" method="post">
+                  <input type="text" placeholder="Cauta locatie..." style="color:black;" size="50" name="search_box">
                   <input type="submit" value="Cauta" style="background-color: #1f3251">
                 </form>
                 <span >
-                  <p style="position: center;">Welcome, <?php echo $name; ?>!</p>
+                  <p style="position: center;">Bine ai venit, <?php echo $name; ?>!</p>
                 </span>
               </div>
           </div>
@@ -39,7 +40,7 @@ include_once("URWeb/controller/fb_date.php");
             <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown"><img src="<?php echo $profile_pic ?>">  Optiuni
             <span class="caret"></span></button>
             <ul class="dropdown-menu">
-              <li><a href="#">Contul meu</a></li>
+              <li><a href="contulmeu.php">Contul meu</a></li>
               <li><a href="#">Cautarile mele</a></li>
               <li><a href="#">Setari</a></li>
               <li><a href="URWeb/controller/logout.php">Iesire</a></li>
@@ -259,7 +260,7 @@ include_once("URWeb/controller/fb_date.php");
             </div>
         </td>
       </tr>
-      <tr><td class = "menu" height="40"><div class="dropdown">
+      <tr><td class = "menu" height="45"><div class="dropdown">
             <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Locatii<span class="caret"></span></button>
             <ul class="dropdown-menu">
                 <li>
