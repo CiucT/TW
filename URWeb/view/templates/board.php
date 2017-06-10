@@ -1,4 +1,5 @@
 <?php
+//error_reporting(0);
 include_once("URWeb/controller/fb_date.php");
 include_once("URWeb/controller/search.php");
 ?>

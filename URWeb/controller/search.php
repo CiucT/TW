@@ -45,7 +45,9 @@ if($search_location){
     $location->formatted_address=$geocode->results[0]->formatted_address;
     array_push($Locations->locations,$location);
   }
-
+  echo '<script>';
+  echo 'var php_locations='.json_encode($Locations->locations).';';
+  echo '</script>';
 /*
   echo "<pre>";
   print_r($Locations);
@@ -55,5 +57,6 @@ if($search_location){
   $sql = "INSERT INTO sugestii_locatie (`user_id`, `place_id`, `descriere`, `adresa`, `latitudine`, `longitudine`) VALUES (".$_SESSION['id'].", '".$Locations->locations[0]->place_id."', '".$Locations->locations[0]->description."','".$Locations->locations[0]->formatted_address."',". $Locations->locations[0]->loc->lat.", '".$Locations->locations[0]->loc->lng."')";
       mysqli_query($cm, $sql)or die(mysqli_error($cm));
 }
+
 
 ?>

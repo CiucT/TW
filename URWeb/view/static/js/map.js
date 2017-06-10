@@ -1,13 +1,12 @@
-// Note: This example requires that you consent to location sharing when
-// prompted by your browser. If you see the error "The Geolocation service
-// failed.", it means you probably did not give permission for the browser to
-// locate you.
+
 function reqListener () {
   console.log(this.responseText);
 }
 
 var mrks=new Array();
-
+for(i=0;i<php_locations.length;i++){
+  mrks.push(php_locations[i].loc);
+}
 
 function initMap() {
 
@@ -31,6 +30,7 @@ function initMap() {
 
             mrks.push(pos);
             map.setCenter(mrks[mrks.length-1]);
+
 
             for(i=0;i<mrks.length;i++){
               //pinul rosu ( marker)
