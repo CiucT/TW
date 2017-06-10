@@ -13,10 +13,10 @@ include_once("../../controller/cautari_database.php");
 	<?php 
 	for($i = 0; $i < count($adresa_array); $i = $i + 1){
 	?>
-		<li><div>Locatie: <?php echo $descriere_array[$i]; ?> Delete</a></td></div>
-			<div>Adresa: <?php echo $adresa_array[$i]; ?> </td></div>
+		<li><div><strong>Locatie</strong>: <?php echo $descriere_array[$i]; ?></td></div>
+			<div><strong>Adresa</strong>: <?php echo $adresa_array[$i]; ?> </td></div>
 		</li>
-	<a href="../../controller/sterge_cautari.php?id=<?php echo $id_place_array[$i]; ?>">Sterge locatia din cautarile mele.</a>
+	<a class="button" href="../../controller/sterge_cautari.php?id=<?php echo $id_place_array[$i]; ?>">Sterge locatia din cautarile mele</a>
 	<?php } ?>
 	</ul>
 
