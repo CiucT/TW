@@ -38,6 +38,7 @@ CREATE TABLE `sugestii_locatie` (
 
 LOCK TABLES `sugestii_locatie` WRITE;
 /*!40000 ALTER TABLE `sugestii_locatie` DISABLE KEYS */;
+INSERT INTO `sugestii_locatie` VALUES ('1478509985553171','ChIJvUboJ2L7ykARLE5QZGhLPhk','Facultatea de Informatică, Strada General Henri Mathias Berthelot, Iași, Iași County, Romania','Strada General Henri Mathias Berthelot 16, Iași 700259, Romania',47.174,27.5749),('1478509985553171','ChIJgRShyGn6ykARfcuy7bA2wkg','Capitol, Valea Adâncă, Iași County, Romania','Str. Debarcaderului 66, Valea Adâncă 700063, Romania',47.1133,27.5586),('1478509985553171','ChIJj_VWxFH6ykAR8KpJ1iIlBq0','Hotel Capitol, Șoseaua Nicolina, Iași, Iași County, Romania','Șoseaua Nicolina 203A, Iași 707317, Romania',47.1135,27.5587);
 /*!40000 ALTER TABLE `sugestii_locatie` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -50,4 +51,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-06-10 12:54:44
+-- Dump completed on 2017-06-10 14:45:55
