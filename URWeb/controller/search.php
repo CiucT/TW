@@ -46,10 +46,6 @@ if($search_location){
     array_push($Locations->locations,$location);
   }
 
-echo json_encode($Locations);
-echo json_encode($Locations->locations[0]->loc);
-echo json_encode($Locations->locations[0]->formatted_address);
-
 /*
   echo "<pre>";
   print_r($Locations);
