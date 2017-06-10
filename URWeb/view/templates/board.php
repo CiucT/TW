@@ -46,7 +46,7 @@ function pop_up(url){
             <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown"><img src="<?php echo $profile_pic ?>">  Optiuni
             <span class="caret"></span></button>
             <ul class="dropdown-menu">
-              <li><a href="contulmeu.php">Contul meu</a></li>
+              <li><a href="#" onclick="pop_up('URWeb/view/templates/contul_meu.php')">Contul meu</a></li>
               <li><a href="#" onclick="pop_up('URWeb/view/templates/cautarile_mele.php')">Cautarile mele</a></li>
               <li><a href="#">Setari</a></li>
               <li><a href="URWeb/controller/logout.php">Iesire</a></li>
