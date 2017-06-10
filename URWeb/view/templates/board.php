@@ -13,6 +13,7 @@ include_once("URWeb/controller/search.php");
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
       <link rel="stylesheet" href="URWeb/view/static/css/board.css" />
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <!--       <link rel="stylesheet" type="text/css" href="../static/css/board.css"> -->
       <script async defer src="URWeb/view/static/js/map.js"></script>
@@ -42,7 +43,7 @@ include_once("URWeb/controller/search.php");
             <span class="caret"></span></button>
             <ul class="dropdown-menu">
               <li><a href="contulmeu.php">Contul meu</a></li>
-              <li><a href="#">Cautarile mele</a></li>
+              <li><a href="URWeb/view/templates/cautarile_mele.php">Cautarile mele</a></li>
               <li><a href="#">Setari</a></li>
               <li><a href="URWeb/controller/logout.php">Iesire</a></li>
             </ul>

@@ -54,8 +54,15 @@ if($search_location){
   // aici trebuie sa facem legatura cu harta pt a afisa pini la lat & lng
   echo "</pre>";
 */
-  $sql = "INSERT INTO sugestii_locatie (`user_id`, `place_id`, `descriere`, `adresa`, `latitudine`, `longitudine`) VALUES (".$_SESSION['id'].", '".$Locations->locations[0]->place_id."', '".$Locations->locations[0]->description."','".$Locations->locations[0]->formatted_address."',". $Locations->locations[0]->loc->lat.", '".$Locations->locations[0]->loc->lng."')";
-      mysqli_query($cm, $sql)or die(mysqli_error($cm));
+  $sql_verify = "select user_id from sugestii_locatie where user_id = '".$_SESSION['id']."' and place_id = '".$Locations->locations[0]->place_id."';";
+  $result = mysqli_query($cm, $sql_verify)or die(mysqli_error($cm));
+  while ($row = mysqli_fetch_assoc($result)) {
+    $res = $row['user_id'];
+  }
+  if(!isset($res)){
+    $sql = "INSERT INTO sugestii_locatie (`user_id`, `place_id`, `descriere`, `adresa`, `latitudine`, `longitudine`) VALUES (".$_SESSION['id'].", '".$Locations->locations[0]->place_id."', '".$Locations->locations[0]->description."','".$Locations->locations[0]->formatted_address."',". $Locations->locations[0]->loc->lat.", '".$Locations->locations[0]->loc->lng."')";
+    mysqli_query($cm, $sql)or die(mysqli_error($cm));
+  }
 }
 
 
