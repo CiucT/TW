@@ -6,13 +6,18 @@ function reqListener () {
   console.log(this.responseText);
 }
 
+var mrks=new Array();
+
+
 function initMap() {
-    var myLatLng = {lat: 27.5329686, lng:47.1725517};
+
+    var myLatLng = {lat: 45.943161, lng:24.96676}; //Romania
+
     var map = new google.maps.Map(document.getElementById('map'), {
         center:myLatLng,
         zoom: 6,
     });
-    var infoWindow = new google.maps.InfoWindow({map: map});
+
 
 
     // Try HTML5 geolocation.
@@ -23,23 +28,28 @@ function initMap() {
                 lng: position.coords.longitude
             };
 
-            //infoWindow.setPosition(pos); setarea pinului cu chenarul alb cu chenarul alb
-            //infoWindow.setContent('Location found.'); textul din chenarul alb
-            map.setCenter(pos);
 
-            //pinul rosu ( marker)
-            var marker = new google.maps.Marker({
-                position: pos,
-                map: map,
-                title: 'My location'
-            });
+            mrks.push(pos);
+            map.setCenter(mrks[mrks.length-1]);
+
+            for(i=0;i<mrks.length;i++){
+              //pinul rosu ( marker)
+              map.setZoom(12);
+              var marker = new google.maps.Marker({
+                  position: mrks[i],
+                  map: map,
+                  title: 'My location'
+              });
+            }
+
+
 
         }, function () {
-            handleLocationError(true, infoWindow, map.getCenter());
+            handleLocationError(true, map.getCenter());
         });
     } else {
         // Browser doesn't support Geolocation
-        handleLocationError(false, infoWindow, map.getCenter());
+        handleLocationError(false, map.getCenter());
     }
 }
 

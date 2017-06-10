@@ -45,7 +45,8 @@ if($_POST['search_box']){
     array_push($Locations->locations,$location);
   }
 
-  echo json_encode($Locations);
+
+
   /*
   echo "<pre>";
   print_r($Locations);
