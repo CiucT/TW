@@ -1,3 +1,9 @@
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]> <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]> <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <!--<![endif]-->
+<!-- Set the viewport width to device width for mobile -->
 <?php
 include_once("URWeb/controller/login.php");
 ?>
@@ -20,7 +26,7 @@ include_once("URWeb/controller/login.php");
        <script async defer type="text/javascript" src="URWeb/view/static/js/jquery-ui.min.js"></script>
    </head>
    <body class="size-1140">
-      <div id="all-content" class="with-sticky-footer">
+      <div id="all-content" class="container-fluid">
          <!-- TOP NAV WITH LOGO -->
          <header>
             <nav>
@@ -48,7 +54,7 @@ include_once("URWeb/controller/login.php");
          </header>
          <section>
             <!-- FIRST BLOCK -->
-            <div id="first-block">
+            <div id="first-block" class="row">
                <div class="line">
                   <div class="margin-bottom">
                      <div class="margin">
