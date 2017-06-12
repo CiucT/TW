@@ -93,7 +93,7 @@ function pop_up(url){
                 <input type="radio" name="oras" value="Harghita" id="item2">Harghita</input></br>
                 <input type="radio" name="oras" value="Ilfov" id="item2">Ilfov</input></br>
                 <input type="radio" name="oras" value="Ialomița" id="item2">Ialomița</input></br>
-                <input type="radio" name="oras" value="Iași" id="item2">Iași</input></br>
+                <input type="radio" name="oras" value="Iasi" id="item2">Iași</input></br>
                 <input type="radio" name="oras" value="Mehedinți" id="item2">Mehedinți</input></br>
                 <input type="radio" name="oras" value="Maramureș" id="item2">Maramureș</input></br>
                 <input type="radio" name="oras" value="Mureș" id="item2">Mureș</input></br>
@@ -122,10 +122,10 @@ function pop_up(url){
             <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Arie de cautare<span class="caret"></span></button>
             <ul class="dropdown-menu">
                 <li>
-                  <input type="radio" name="arie" value="0" id="item1">0-5000</input></br>
+                  <input type="radio" name="arie" value="500" id="item1">500</input></br>
                 </li>
                 <li>
-                  <input type="radio" name="arie" value="5001" id="item2">5001-10000</input></br>
+                  <input type="radio" name="arie" value="500" id="item2">5000</input></br>
                 </li>
                 <li>
                   <input type="radio" name="arie" value="10000" id="item3">>10000</input>

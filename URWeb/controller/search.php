@@ -26,11 +26,10 @@ class Locations{
 $Locations=new Locations();
 $search_location = (isset($_POST['search_box']) ? $_POST['search_box'] : null);
 $search_by_options = (isset($_POST['submit_cauta_dupa_optiuni']) ? $_POST['submit_cauta_dupa_optiuni'] : null);
-echo $_POST['submit_cauta_dupa_optiuni'];
 
 if($search_location){
   $address=str_replace(' ','+',$search_location);
-  $places_encoded=file_get_contents('https://maps.googleapis.com/maps/api/place/queryautocomplete/json?input='.$address.'+'.$locality.'+'.$country.'&key=AIzaSyCks8-DgdPi5MLSJDSJUhbLoPrQe10GOCg');
+  $places_encoded=file_get_contents('https://maps.googleapis.com/maps/api/place/textsearch/json?query='.$address.'+in+'.$locality.'+'.$country.'&key=AIzaSyCks8-DgdPi5MLSJDSJUhbLoPrQe10GOCg');
   $places=json_decode($places_encoded);
 
   $number_of_predicted_locations=count($places->predictions);
@@ -54,23 +53,22 @@ if($search_by_options){
   $arie = $_POST["arie"];
   $tip_locatie = $_POST["locatie"];
   $oras = $_POST["oras"];
-  $places_encoded=file_get_contents('https://maps.googleapis.com/maps/api/place/queryautocomplete/json?input='.$oras.'+'.$country.'&radius='.$arie.'&type='.$tip_locatie.'&key=AIzaSyCks8-DgdPi5MLSJDSJUhbLoPrQe10GOCg');
+  $places_encoded=file_get_contents('https://maps.googleapis.com/maps/api/place/textsearch/json?query='.$tip_locatie.'+in+'.$oras.'+'.$country.'&radius='.$arie.'&key=AIzaSyCks8-DgdPi5MLSJDSJUhbLoPrQe10GOCg');
   $places=json_decode($places_encoded);
 
-  $number_of_predicted_locations=count($places->predictions);
-
-  for ($i = 0; $i < $number_of_predicted_locations; $i++) {
-    $location=new Location();
-    $location->description=$places->predictions[$i]->description;
-    $location->id=$places->predictions[$i]->id;
-    $location->place_id=$places->predictions[$i]->place_id;
-    $geocode_encoded=file_get_contents('https://maps.googleapis.com/maps/api/geocode/json?place_id='.$location->place_id.'&key=AIzaSyCks8-DgdPi5MLSJDSJUhbLoPrQe10GOCg');
-    $geocode=json_decode($geocode_encoded);
-    $location->loc=new Local_lat_and_lng();
-    $location->loc->lat=$geocode->results[0]->geometry->location->lat;
-    $location->loc->lng=$geocode->results[0]->geometry->location->lng;
-    $location->formatted_address=$geocode->results[0]->formatted_address;
-    array_push($Locations->locations,$location);
+  $number_of_predicted_results=count($places->results);
+  for ($i = 0; $i < $number_of_predicted_results; $i++) {
+  $location=new Location();
+  $location->description=$places->results[$i]->name;
+  $location->id=$places->results[$i]->id;
+  $location->place_id=$places->results[$i]->place_id;
+  $geocode_encoded=file_get_contents('https://maps.googleapis.com/maps/api/geocode/json?place_id='.$location->place_id.'&key=AIzaSyCks8-DgdPi5MLSJDSJUhbLoPrQe10GOCg');
+  $geocode=json_decode($geocode_encoded);
+  $location->loc=new Local_lat_and_lng();
+  $location->loc->lat=$geocode->results[0]->geometry->location->lat;
+  $location->loc->lng=$geocode->results[0]->geometry->location->lng;
+  $location->formatted_address=$geocode->results[0]->formatted_address;
+  array_push($Locations->locations,$location);
   }
 }
   echo '<script>';
