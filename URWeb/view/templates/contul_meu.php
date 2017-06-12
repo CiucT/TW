@@ -12,6 +12,7 @@ include_once("../../controller/get_users_information.php");
         <!-- import CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <link rel="stylesheet" href="/fancybox/jquery.fancybox-1.3.4.css" type="text/css" media="screen" />
+        <link rel="stylesheet" href="../static/css/contul_meu.css" />
         <!-- import JS -->
         <script src="bootstrap-3.3.7/js/tests/vendor/jquery.min.js"></script>
         <script src="bootstrap-3.3.7/dist/js/bootstrap.min.js"></script>
