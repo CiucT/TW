@@ -128,7 +128,7 @@ function pop_up(url){
                   <input type="radio" name="arie" value="500" id="item2">5000</input></br>
                 </li>
                 <li>
-                  <input type="radio" name="arie" value="10000" id="item3">>10000</input>
+                  <input type="radio" name="arie" value="10000" id="item3">10000</input>
                 </li>
             </ul>
             </div>
@@ -154,7 +154,7 @@ function pop_up(url){
                 </li>
             </ul>
             </br></br>
-        <input type="submit" value="Cauta" name="submit_cauta_dupa_optiuni">
+        <input type="submit" value="Cauta" name="submit_cauta_dupa_optiuni" style="background-color: #1f3251">
         </form>
       </td></tr>
       <tr><td class = "menu" style="vertical-align: bottom;"><a href="http://students.info.uaic.ro/~georgiana.trofin/urweb/tw.html" target="_blank">Contact</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="URWeb/view/templates/aboutus.html" target="_blank">Despre noi</a></td></tr>
