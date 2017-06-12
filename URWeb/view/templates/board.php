@@ -13,6 +13,7 @@ include_once("URWeb/controller/search.php");
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
       <link rel="stylesheet" href="URWeb/view/static/css/board.css" />
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <!--       <link rel="stylesheet" type="text/css" href="../static/css/board.css"> -->
       <script async defer src="URWeb/view/static/js/map.js"></script>
@@ -28,8 +29,8 @@ function pop_up(url){
       <tr style="background: #101928;" width="1360" height="60">
         <th><span style="font-size:20px;">Filtre de cautare</span></th>
         <th>
-          <div class="container-fluid">
-              <div class="row">
+          <div>
+              <div >
                 <form action="board.php" method="post">
                   <input type="text" placeholder="Cauta locatie..." style="color:black;" size="50" name="search_box">
                   <input type="submit" value="Cauta" style="background-color: #1f3251">
@@ -47,7 +48,6 @@ function pop_up(url){
             <ul class="dropdown-menu">
               <li><a href="#" onclick="pop_up('URWeb/view/templates/contul_meu.php')">Contul meu</a></li>
               <li><a href="#" onclick="pop_up('URWeb/view/templates/cautarile_mele.php')">Cautarile mele</a></li>
-              <li><a href="#">Setari</a></li>
               <li><a href="URWeb/controller/logout.php">Iesire</a></li>
             </ul>
           </div>

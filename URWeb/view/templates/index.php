@@ -24,6 +24,14 @@ include_once("URWeb/controller/login.php");
        <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
        <script async defer type="text/javascript" src="URWeb/view/static/js/jquery-1.8.3.min.js"></script>
        <script async defer type="text/javascript" src="URWeb/view/static/js/jquery-ui.min.js"></script>
+       <style>
+       @media screen and (max-width: 420px) {
+            body {
+               width:auto;
+               height: auto;
+            }
+         }
+         </style>
    </head>
    <body class="size-1140">
       <div id="all-content" class="container-fluid">
