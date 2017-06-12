@@ -65,180 +65,52 @@ function pop_up(url){
             <span class="caret"></span></button>
             <ul class="dropdown-menu" style="overflow-y:scroll; height:200px;">
             <li>
-              <input type="radio" name="group1" value="mica" id="item1">
-                <label for="item1">Alba</label></input></br>
-            </li>
-            <li>
-              <input type="radio" name="group1" value="medie" id="item2">
-                <label for="item2">Argeș</label></input></br>
-            </li>
-            <li>
-              <input type="radio" name="group1" value="mare" id="item3">
-                <label for="item3">Arad</label></input></br>
-            </li>
-            <li>
-              <input type="radio" name="group1" value="mare" id="item3">
-                <label for="item3">București</label></input></br>
-            </li>
-            <li>
-              <input type="radio" name="group1" value="mare" id="item3">
-                <label for="item3">Bacău</label></input></br>
-            </li>
-            <li>
-              <input type="radio" name="group1" value="mare" id="item3">
-                <label for="item3">Bârlad</label></input></br>
-            </li>
-            <li>
-              <input type="radio" name="group1" value="mare" id="item3">
-                <label for="item3">Bistriţa</label></input></br>
-            </li>
-            <li>
-              <input type="radio" name="group1" value="mare" id="item3">
-                <label for="item3">Bihor</label></input></br>
-            </li>
-            <li>
-              <input type="radio" name="group1" value="mare" id="item3">
-                <label for="item3">Bistrița-Năsăud</label></input></br>
-            </li>
-            <li>
-              <input type="radio" name="group1" value="mare" id="item3">
-                <label for="item3">Brăila</label></input></br>
-            </li>
-            <li>
-              <input type="radio" name="group1" value="mica" id="item1">
-                <label for="item1">Botoșani</label></input></br>
-            </li>
-            <li>
-              <input type="radio" name="group1" value="medie" id="item2">
-                <label for="item2">Brașov</label></input></br>
-            </li>
-            <li>
-              <input type="radio" name="group1" value="mare" id="item3">
-                <label for="item3">Buzău</label></input></br>
-            </li>
-            <li>
-              <input type="radio" name="group1" value="mare" id="item3">
-                <label for="item3">Cluj</label></input></br>
-            </li>
-            <li>
-              <input type="radio" name="group1" value="mare" id="item3">
-                <label for="item3">Călărași</label></input></br>
-            </li>
-            <li>
-              <input type="radio" name="group1" value="mare" id="item3">
-                <label for="item3">Caraș-Severin</label></input></br>
-            </li>
-            <li>
-              <input type="radio" name="group1" value="mare" id="item3">
-                <label for="item3">Constanța</label></input></br>
-            </li>
-            <li>
-              <input type="radio" name="group1" value="mare" id="item3">
-                <label for="item3">Covasna</label></input></br>
-            </li>
-            <li>
-              <input type="radio" name="group1" value="mare" id="item3">
-                <label for="item3">Dâmbovița</label></input></br>
-            </li>
-            <li>
-              <input type="radio" name="group1" value="mare" id="item3">
-                <label for="item3">Dolj</label></input></br>
-            </li>
-            <li>
-              <input type="radio" name="group1" value="mica" id="item1">
-                <label for="item1">Gorj</label></input></br>
-            </li>
-            <li>
-              <input type="radio" name="group1" value="medie" id="item2">
-                <label for="item2">Galați</label></input></br>
-            </li>
-            <li>
-              <input type="radio" name="group1" value="mare" id="item3">
-                <label for="item3">Giurgiu</label></input></br>
-            </li>
-            <li>
-              <input type="radio" name="group1" value="mare" id="item3">
-                <label for="item3">Hunedoara</label></input></br>
-            </li>
-            <li>
-              <input type="radio" name="group1" value="mare" id="item3">
-                <label for="item3">Harghita</label></input></br>
-            </li>
-            <li>
-              <input type="radio" name="group1" value="mare" id="item3">
-                <label for="item3">Ilfov</label></input></br>
-            </li>
-            <li>
-              <input type="radio" name="group1" value="mare" id="item3">
-                <label for="item3">Ialomița</label></input></br>
-            </li>
-            <li>
-              <input type="radio" name="group1" value="mare" id="item3">
-                <label for="item3">Iași</label></input></br>
-            </li>
-            <li>
-              <input type="radio" name="group1" value="mare" id="item3">
-                <label for="item3">Mehedinți</label></input></br>
-            </li>
-            <li>
-              <input type="radio" name="group1" value="mare" id="item3">
-                <label for="item3">Maramureș</label></input></br>
-            </li>
-            <li>
-              <input type="radio" name="group1" value="mica" id="item1">
-                <label for="item1">Mureș</label></input></br>
-            </li>
-            <li>
-              <input type="radio" name="group1" value="medie" id="item2">
-                <label for="item2">Neamț</label></input></br>
-            </li>
-            <li>
-              <input type="radio" name="group1" value="mare" id="item3">
-                <label for="item3">Olt</label></input></br>
-            </li>
-            <li>
-              <input type="radio" name="group1" value="mare" id="item3">
-                <label for="item3">Prahova</label></input></br>
-            </li>
-            <li>
-              <input type="radio" name="group1" value="mare" id="item3">
-                <label for="item3">Sibiu</label></input></br>
-            </li>
-            <li>
-              <input type="radio" name="group1" value="mare" id="item3">
-                <label for="item3">Sălaj</label></input></br>
-            </li>
-            <li>
-              <input type="radio" name="group1" value="mare" id="item3">
-                <label for="item3">Satu Mare</label></input></br>
-            </li>
-            <li>
-              <input type="radio" name="group1" value="mare" id="item3">
-                <label for="item3">Suceava</label></input></br>
-            </li>
-            <li>
-              <input type="radio" name="group1" value="mare" id="item3">
-                <label for="item3">Tulcea</label></input></br>
-            </li>
-            <li>
-              <input type="radio" name="group1" value="mare" id="item3">
-                <label for="item3">Timiș</label></input></br>
-            </li>
-            <li>
-              <input type="radio" name="group1" value="mare" id="item3">
-                <label for="item3">Teleorman</label></input></br>
-            </li>
-            <li>
-              <input type="radio" name="group1" value="mare" id="item3">
-                <label for="item3">Vâlcea</label></input></br>
-            </li>
-            <li>
-              <input type="radio" name="group1" value="mare" id="item3">
-                <label for="item3">Vrancea</label></input></br>
-            </li>
-            <li>
-              <input type="radio" name="group1" value="mare" id="item3">
-                <label for="item3">Vaslui</label></input>
+            <form action="board.php" method = "GET">
+                <input type="radio" name="oras" value="Alba" id="item1">Alba</input></br>
+                <input type="radio" name="oras" value="Argeș" id="item2">Argeș</input></br>
+                <input type="radio" name="oras" value="Arad" id="item3">Arad</input></br>
+                <input type="radio" name="oras" value="Argeș" id="item2">Argeș</input></br>
+                <input type="radio" name="oras" value="Bacău" id="item3">Bacău</input></br>
+                <input type="radio" name="oras" value="București" id="item3">București</input></br>
+                <input type="radio" name="oras" value="Bârlad" id="item3">Bârlad</input></br>
+                <input type="radio" name="oras" value="Bistriţa" id="item3">Bistriţa</input></br>
+                <input type="radio" name="oras" value="Bihor" id="item3">Bihor</input></br>
+                <input type="radio" name="oras" value="Bistrița-Năsăud" id="item3">Bistrița-Năsăud</input></br>
+                <input type="radio" name="oras" value="Brăila" id="item3">Brăila</input></br>
+                <input type="radio" name="oras" value="Botoșani" id="item1">Botoșani</input></br>
+                <input type="radio" name="oras" value="Brașov" id="item2">Brașov</input></br>
+                <input type="radio" name="oras" value="Buzău" id="item2">Buzău</input></br>
+                <input type="radio" name="oras" value="Cluj" id="item2">Cluj</input></br>
+                <input type="radio" name="oras" value="Călărași" id="item2">Călărași</input></br>
+                <input type="radio" name="oras" value="Caraș-Severin" id="item2">Caraș-Severin</input></br>
+                <input type="radio" name="oras" value="Constanța" id="item2">Constanța</input></br>
+                <input type="radio" name="oras" value="Covasna" id="item2">Covasna</input></br>
+                <input type="radio" name="oras" value="Dâmbovița" id="item2">Dâmbovița</input></br>
+                <input type="radio" name="oras" value="Dolj" id="item2">Dolj</input></br>
+                <input type="radio" name="oras" value="Gorj" id="item2">Gorj</input></br>
+                <input type="radio" name="oras" value="Galați" id="item2">Galați</input></br>
+                <input type="radio" name="oras" value="Giurgiu" id="item2">Giurgiu</input></br>
+                <input type="radio" name="oras" value="Hunedoara" id="item2">Hunedoara</input></br>
+                <input type="radio" name="oras" value="Harghita" id="item2">Harghita</input></br>
+                <input type="radio" name="oras" value="Ilfov" id="item2">Ilfov</input></br>
+                <input type="radio" name="oras" value="Ialomița" id="item2">Ialomița</input></br>
+                <input type="radio" name="oras" value="Iași" id="item2">Iași</input></br>
+                <input type="radio" name="oras" value="Mehedinți" id="item2">Mehedinți</input></br>
+                <input type="radio" name="oras" value="Maramureș" id="item2">Maramureș</input></br>
+                <input type="radio" name="oras" value="Mureș" id="item2">Mureș</input></br>
+                <input type="radio" name="oras" value="Neamț" id="item2">Neamț</input></br>
+                <input type="radio" name="oras" value="Olt" id="item2">Olt</input></br>
+                <input type="radio" name="oras" value="Prahova" id="item2">Prahova</input></br>
+                <input type="radio" name="oras" value="Sibiu" id="item2">Sibiu</input></br>
+                <input type="radio" name="oras" value="Sălaj" id="item2">Sălaj</input></br>
+                <input type="radio" name="oras" value="Satu Mare" id="item2">Satu Mare</input></br>
+                <input type="radio" name="oras" value="Suceava" id="item2">Suceava</input></br>
+                <input type="radio" name="oras" value="Tulcea" id="item2">Tulcea</input></br>
+                <input type="radio" name="oras" value="Timiș" id="item2">Timiș</input></br>
+                <input type="radio" name="oras" value="Teleorman" id="item2">Teleorman</input></br>
+                <input type="radio" name="oras" value="Vâlcea" id="item2">Vâlcea</input></br>
+                <input type="radio" name="oras" value="Vrancea" id="item2">Vrancea</input></br>
+                <input type="radio" name="oras" value="Vaslui" id="item2">Vaslui</input></br> 
             </li>
           </ul>
             </div>
@@ -251,16 +123,13 @@ function pop_up(url){
             <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Arie de cautare<span class="caret"></span></button>
             <ul class="dropdown-menu">
                 <li>
-                  <input type="radio" name="group1" value="mica" id="item1">
-                  <label for="item1">0-5000</label></input></br>
+                  <input type="radio" name="arie" value="0" id="item1">0-5000</input></br>
                 </li>
                 <li>
-                  <input type="radio" name="group1" value="medie" id="item2">
-                  <label for="item2">5001-10000</label></input></br>
+                  <input type="radio" name="arie" value="5001" id="item2">5001-10000</input></br>
                 </li>
                 <li>
-                  <input type="radio" name="group1" value="mare" id="item3">
-                  <label for="item3">>10000</label></input>
+                  <input type="radio" name="arie" value="10000" id="item3">>10000</input>
                 </li>
             </ul>
             </div>
@@ -270,26 +139,24 @@ function pop_up(url){
             <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Locatii<span class="caret"></span></button>
             <ul class="dropdown-menu">
                 <li>
-                  <input type="radio" name="group1" value="mica" id="item1">
-                  <label for="item1">Restaurante</label></input></br>
+                  <input type="radio" name="locatie" value="restaurant" id="item1">Restaurante</input></br>
                 </li>
                 <li>
-                  <input type="radio" name="group1" value="mare" id="item3">
-                  <label for="item3">Spitale</label></input>
+                  <input type="radio" name="locatie" value="hospital" id="item3">Spitale</input>
                 </li>
                 <li>
-                  <input type="radio" name="group1" value="mica" id="item1">
-                  <label for="item1">Parcuri</label></input></br>
+                  <input type="radio" name="locatie" value="park" id="item1">Parcuri</input></br>
                 </li>
                 <li>
-                  <input type="radio" name="group1" value="mare" id="item3">
-                  <label for="item3">Centre de invatamant</label></input>
+                  <input type="radio" name="locatie" value="university" id="item3">Centre de invatamant</input>
                 </li>
                 <li>
-                  <input type="radio" name="group1" value="mare" id="item3">
-                  <label for="item3">Centru comercial</label></input>
+                  <input type="radio" name="locatie" value="grocery_or_supermarket" id="item3">Centru comercial</input>
                 </li>
             </ul>
+            </br></br>
+        <input type="submit" value="Cauta" name="submit_cauta_dupa_optiuni">
+        </form>
       </td></tr>
       <tr><td class = "menu" style="vertical-align: bottom;"><a href="http://students.info.uaic.ro/~georgiana.trofin/urweb/tw.html" target="_blank">Contact</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="URWeb/view/templates/aboutus.html" target="_blank">Despre noi</a></td></tr>
     </table>
