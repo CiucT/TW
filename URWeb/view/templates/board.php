@@ -1,5 +1,5 @@
 <?php
-error_reporting(0);
+//error_reporting(0);
 include_once("URWeb/controller/fb_date.php");
 include_once("URWeb/controller/search.php");
 ?>
@@ -64,7 +64,7 @@ function pop_up(url){
             <span class="caret"></span></button>
             <ul class="dropdown-menu" style="overflow-y:scroll; height:200px;">
             <li>
-            <form action="board.php" method = "GET">
+            <form action="board.php" method = "POST">
                 <input type="radio" name="oras" value="Alba" id="item1">Alba</input></br>
                 <input type="radio" name="oras" value="Argeș" id="item2">Argeș</input></br>
                 <input type="radio" name="oras" value="Arad" id="item3">Arad</input></br>

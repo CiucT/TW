@@ -25,7 +25,8 @@ class Locations{
 
 $Locations=new Locations();
 $search_location = (isset($_POST['search_box']) ? $_POST['search_box'] : null);
-$search_by_options = (isset($_POST['search_box']) ? $_POST['search_box'] : null);
+$search_by_options = (isset($_POST['submit_cauta_dupa_optiuni']) ? $_POST['submit_cauta_dupa_optiuni'] : null);
+echo $_POST['submit_cauta_dupa_optiuni'];
 
 if($search_location){
   $address=str_replace(' ','+',$search_location);
@@ -50,8 +51,10 @@ if($search_location){
 }
 
 if($search_by_options){
-  $address=$_POST[""]."+".$_POST[""]."+".$_POST[""];
-  $places_encoded=file_get_contents('https://maps.googleapis.com/maps/api/place/queryautocomplete/json?input='.$address.'+'.$locality.'+'.$country.'&key=AIzaSyCks8-DgdPi5MLSJDSJUhbLoPrQe10GOCg');
+  $arie = $_POST["arie"];
+  $tip_locatie = $_POST["locatie"];
+  $oras = $_POST["oras"];
+  $places_encoded=file_get_contents('https://maps.googleapis.com/maps/api/place/queryautocomplete/json?input='.$oras.'+'.$country.'&radius='.$arie.'&type='.$tip_locatie.'&key=AIzaSyCks8-DgdPi5MLSJDSJUhbLoPrQe10GOCg');
   $places=json_decode($places_encoded);
 
   $number_of_predicted_locations=count($places->predictions);
