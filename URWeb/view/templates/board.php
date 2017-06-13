@@ -13,6 +13,7 @@ include_once("URWeb/controller/search.php");
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
       <link rel="stylesheet" href="URWeb/view/static/css/board.css" />
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <!--       <link rel="stylesheet" type="text/css" href="../static/css/board.css"> -->
       <script async defer src="URWeb/view/static/js/map.js"></script>
@@ -28,8 +29,8 @@ function pop_up(url){
       <tr style="background: #101928;" width="1360" height="60">
         <th><span style="font-size:20px;">Filtre de cautare</span></th>
         <th>
-          <div class="container-fluid">
-              <div class="row">
+          <div>
+              <div >
                 <form action="board.php" method="post">
                   <input type="text" placeholder="Cauta locatie..." style="color:black;" size="50" name="search_box">
                   <input type="submit" value="Cauta" style="background-color: #1f3251">
@@ -47,7 +48,6 @@ function pop_up(url){
             <ul class="dropdown-menu">
               <li><a href="#" onclick="pop_up('URWeb/view/templates/contul_meu.php')">Contul meu</a></li>
               <li><a href="#" onclick="pop_up('URWeb/view/templates/cautarile_mele.php')">Cautarile mele</a></li>
-              <li><a href="#">Setari</a></li>
               <li><a href="URWeb/controller/logout.php">Iesire</a></li>
             </ul>
           </div>
@@ -128,7 +128,7 @@ function pop_up(url){
                   <input type="radio" name="arie" value="500" id="item2">5000</input></br>
                 </li>
                 <li>
-                  <input type="radio" name="arie" value="10000" id="item3">>10000</input>
+                  <input type="radio" name="arie" value="10000" id="item3">10000</input>
                 </li>
             </ul>
             </div>
@@ -154,7 +154,7 @@ function pop_up(url){
                 </li>
             </ul>
             </br></br>
-        <input type="submit" value="Cauta" name="submit_cauta_dupa_optiuni">
+        <input type="submit" value="Cauta" name="submit_cauta_dupa_optiuni" style="background-color: #1f3251">
         </form>
       </td></tr>
       <tr><td class = "menu" style="vertical-align: bottom;"><a href="http://students.info.uaic.ro/~georgiana.trofin/urweb/tw.html" target="_blank">Contact</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="URWeb/view/templates/aboutus.html" target="_blank">Despre noi</a></td></tr>
