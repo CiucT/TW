@@ -244,11 +244,6 @@ function initMap() {
 				case 89:google.maps.event.addListener(markers_array[89], 'click', function(point) {calculateRoute(89)});
                   break;
 
-
-
-
-
-
               }
 
               number_of_markers++;
@@ -268,6 +263,7 @@ function initMap() {
                 }
 
               }
+
               markers_array[1].setMap(null);
 
               var request={
@@ -279,12 +275,14 @@ function initMap() {
               directionsService.route(request,function(result,status){
                 if(status=="OK"){
                   directionsDisplay.setDirections(result);
-
+                for(i=0;i<php_locations.length;i++){
+                  if(php_locations[i].loc==mrks[1]){
+                    var id = php_locations[i].id;
+                     }
+                  }
                 }
               });
             }
-
-
 
         }, function () {
             handleLocationError(true, map.getCenter());

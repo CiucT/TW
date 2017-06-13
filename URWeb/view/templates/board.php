@@ -2,6 +2,7 @@
 //error_reporting(0);
 include_once("URWeb/controller/fb_date.php");
 include_once("URWeb/controller/search.php");
+// include_once("URWeb/controller/introducere_cautari.php");
 ?>
 <!DOCTYPE html>
 <html>
@@ -9,7 +10,7 @@ include_once("URWeb/controller/search.php");
       <title>Geolocation</title>
       <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
       <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
       <link rel="stylesheet" href="URWeb/view/static/css/board.css" />
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
