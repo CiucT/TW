@@ -5,9 +5,9 @@
 
 	<meta name="viewport" content="width=device-width">
 	<title>Raportul Proiectului U R Web</title>
-	<link rel="stylesheet" href="scholarly.css">
-	<link rel="stylesheet" href="prism-coy.css">
-	<script src="prism.js" defer=""></script>
+	<link rel="stylesheet" href="../static/css/scholarly.css">
+	<!--link rel="stylesheet" href="prism-coy.css"-->
+	<!--script src="prism.js" defer=""></script-->
 </head>
 <body prefix="schema: http://schema.org/ xsd: http://www.w3.org/2001/XMLSchema# sa: https://ns.science.ai/">
 <header>
@@ -78,9 +78,9 @@ Sistemul va putea oferi informații despre locație și va putea propune rute op
 
 		<p>
 
-Pentru implementare proiectului vom folosi HyperText Transfer Protocol bazat pe stiva de protocoale TCP/IP , un protocol fiabil de tip cerere/raspuns ce foloseste ca port standard de acces, portul 80. Focalizat asupra performantei, HTTP/2.0 este dezvoltat din varianta 1.1 , fiind standardizat si introdus pe majoritatea browserelor in anul 2015. 
+Pentru implementarea proiectului vom folosi HyperText Transfer Protocol bazat pe stiva de protocoale TCP/IP , un protocol fiabil de tip cerere/raspuns ce foloseste ca port standard de acces, portul 80. Focalizat asupra performantei, HTTP/2.0 este dezvoltat din varianta 1.1 , fiind standardizat si introdus pe majoritatea browserelor in anul 2015. 
 O altă tehnologie utilizată vor fi bazele de date MySQL . Acestea reprezină o modalitate de stocare a unor informații și date pe un suport extern ( un dispozitiv de stocare), cu posibilitatea extinderii ușoare și a regăsirii rapide a acestora. 
-Interfata Web va consta din incarcarea in paginile HTML a elementelor de design din CSS cu ajutorul Boostrap si JQuery, sustinute de arhitectura in limbajul Python data de microframeworkuld Flask.
+Interfata Web va consta din încarcarea în paginile HTML a elementelor de design din CSS cu ajutorul Boostrap si JQuery, susținute de arhitectura în limbajul PHP.
 
 </p>
 		</section>
@@ -90,9 +90,8 @@ Interfata Web va consta din incarcarea in paginile HTML a elementelor de design 
 		<h3>3) Arhitectura</h3>
 
 		<p>
-Aplicația va folosi o arhitectură de tipul CLIENT/SERVER TCP concurent. Serverul va primi cererile de conectari de la clienți,după care va oferi acestora posibilitatea de a se loga sau de a se înregistra prin intermediul contului de Facebook.
- Dacă logarea eșuează, clientului îi se va propune încercarea de reconectare către server sau de a se înregistra . La înregistrare, se va verifica dacă clientul cu același nume nu există deja în baza de date, și în caz că nu , datele acestuia vor fi adăugate în baza de date. 
-Clientul se poate loga ,iar daca logare se termina cu succes se va accesa pagina home. Pe pagina Home se vor putea accesa functionalitatile aplicatiei noastre. Printre acestea se regasesc : pagina principala stanga,  se face o cautare pe baza tuturor informatiilor dorite de utilizator, pagina principala dreapta , Optiuni : Contul meu(informatii despre utilizator,ex:email,nume, id),Cautarile mele(istoricul cautarilor efectuate pana acum), Optiuni (in care se va putea bifa/debifa daca se va tine cont de fostele cautari )  si Iesire pentru delogare. In partea de footer se va regasi  Contact pentru feedback si informatii suplimentare. In cazul accesarii in partea de cautare, se va trimite o cerere catre server ,iar pe baza informatiilor primite se va face o cautare in baza de date. Printr-un formular html se vor trimite cu ajutorul metodei POST  , informatiile vor fi cautate in baza de date. Daca informatiile au fost gasite de API-ul nostru, se va afisa ruta si la o selectare a unei singure locatii se vor afisa informatii despre locatia selectata . Printr-un formular html se vor trimite cu ajutorul metodei POST , informatiile vor fi cautate in baza de date. Daca informatiile au fost gasite in baza de date se va afisa lista de destinatii posibile.
+Aplicația va folosi o arhitectură de tipul CLIENT/SERVER TCP concurent. Serverul va primi cererile de conectari de la clienți,după care va oferi acestora posibilitatea de a se loga prin intermediul contului de Facebook.
+Dacă logarea eșuează, clientului îi se va propune încercarea de reconectare către server . Clientul se poate loga ,iar daca logarea se termina cu succes se va accesa pagina home. Pe pagina Home se vor putea accesa functionalitatile aplicatiei noastre. Printre acestea se regasesc : pagina principala stanga,  se face o cautare pe baza tuturor informatiilor dorite de utilizator, pagina principala dreapta , Optiuni : Contul meu(informatii despre utilizator,ex:email,nume, id), Cautarile mele (în care se vor vizualiza cautarile utilizatorului până acum avand posibilitatea de a le șterge șterse ) și Iesire pentru delogare. În partea de footer se va regăsi  Contact informații suplimentare și Despre noi pentru detalii de utilizare a aplicației. In cazul accesarii in partea de cautare, se va trimite o cerere catre server ,iar pe baza informatiilor primite se va face o cautare in baza de date. Printr-un formular html se vor trimite cu ajutorul metodei POST  , informatiile vor fi cautate in baza de date. Daca informatiile au fost gasite de API-ul nostru, se va afisa ruta si la o selectare a unei singure locatii se vor afisa informatii despre locatia selectata și posibile trasee până la locația respectivă . Printr-un formular html se vor trimite cu ajutorul metodei POST , informatiile vor fi cautate in baza de date. Daca informatiile au fost gasite in baza de date se va afisa lista de destinatii posibile.
 
 
 
@@ -112,8 +111,7 @@ Clientul se poate loga ,iar daca logare se termina cu succes se va accesa pagina
 
 		<p>
 
-Dupa accesarea adresei , va aparea meniul de login . Odata ce datele au fost introduse in meniul de login cu ajutorul contului de Facebook existent, se va face o interogare in baza de date daca userul exista,iar daca nu se returneaza nici un row la introducerea datelor,se va semnala o eroare . In caz contrar, userul va fi redirectionat catre pagina de meniu. 
-
+Dupa accesarea adresei , va aparea meniul de login . Odată ce datele au fost ăntroduse in meniul de login cu ajutorul contului de Facebook existent, se va face o interogare in baza de date daca userul există,iar dacă nu se returneaza nici un row la introducerea datelor,se va semnala o eroare . In caz contrar, userul va fi redirectionat catre pagina de meniu. 
 
 </p>
 
@@ -130,25 +128,20 @@ Dupa accesarea adresei , va aparea meniul de login . Odata ce datele au fost int
 
 <h5>  Tabele in DB </h5>
 		<figure typeof="sa:Image">
-		<center>Tabela Facebook<p><img src="tabfb.png" alt="Tabela Facebook" width="50%"/></p> </center>
+		<center>Tabela Facebook_users<p><img src="Tbfacebookusers.png" alt="Tabela facebook_users" width="50%"/></p> </center>
 		</figure>
 		<figure typeof="sa:Image">
-		<center>Tabela Istoric<p><img src="tabhistory.png" alt="Tabela Istoric" width="50%"/></p></center>
+		<center>Tabela Sugestii_Locatii<p><img src="Tbsugestii.png" alt="Tabela sugestii_locatii" width="0%"/></p></center>
 		</figure>
-		<figure typeof="sa:Image">
-		<center>Tabela Users<p><img src="tabusers.png" alt="Tabela Users" width="0%"/></p></center>
-		</figure>
-
-
 		</section>
 <h4> Interfata actuala</h4>
 
 <figure typeof="sa:Image">
-		<center><p><img src="1.png" alt="1" width="90%"/></p> </center>
-		<center><p><img src="2.png" alt="2" width="90%"/></p> </center>
-		<center><p><img src="3.png" alt="3" width="90%"/></p> </center>
-		<center><p><img src="4.png" alt="4" width="90%"/></p> </center>
-		<center><p><img src="5.png" alt="5" width="90%"/></p> </center>
+		<center><p><img src="1.png" alt="1" width="90%"/>Pagina Login</p> </center>
+		<center><p><img src="2.png" alt="2" width="90%"/>Pagina aplicatiei</p> </center>
+		<center><p><img src="3.png" alt="3" width="90%"/>Optiunea Contul meu</p> </center>
+		<center><p><img src="4.png" alt="4" width="90%"/>Optiunea Cautarile mele</p> </center>
+		<center><p><img src="5.png" alt="5" width="90%"/>Deaspre noi</p> </center>
 		</figure>
 
 
@@ -178,10 +171,6 @@ Dupa accesarea adresei , va aparea meniul de login . Odata ce datele au fost int
 <li> <a href="http://flask.pocoo.org/docs/0.10/.latex/Flask.pdf" > Flask </a> </li>
 <li> <a href="http://profs.info.uaic.ro/~busaco/teach/courses"> Cursuri TW </a> </li>
 <li> <a href="https://developers.facebook.com/"> Facebook API</a> </li>
-
-
-
-
 
 		</ul>
 		</section>
