@@ -29,9 +29,9 @@ $search_by_options = (isset($_POST['submit_cauta_dupa_optiuni']) ? $_POST['submi
 
 if($search_location){
   $address=str_replace(' ','+',$search_location);
-  $places_encoded=file_get_contents('https://maps.googleapis.com/maps/api/place/textsearch/json?query='.$address.'+in+'.$locality.'+'.$country.'&key=AIzaSyCks8-DgdPi5MLSJDSJUhbLoPrQe10GOCg');
+  $places_encoded=file_get_contents('https://maps.googleapis.com/maps/api/place/queryautocomplete/json?input='.$address.'+'.$country.'&key=AIzaSyCks8-DgdPi5MLSJDSJUhbLoPrQe10GOCg');
   $places=json_decode($places_encoded);
-
+  
   $number_of_predicted_locations=count($places->predictions);
 
   for ($i = 0; $i < $number_of_predicted_locations; $i++) {
