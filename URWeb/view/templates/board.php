@@ -158,7 +158,7 @@ function pop_up(url){
         <input type="submit" value="Cauta" name="submit_cauta_dupa_optiuni" style="background-color: #1f3251">
         </form>
       </td></tr>
-      <tr><td class = "menu" style="vertical-align: bottom;"><a href="http://students.info.uaic.ro/~georgiana.trofin/urweb/tw.html" target="_blank">Contact</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="URWeb/view/templates/aboutus.html" target="_blank">Despre noi</a></td></tr>
+      <tr><td class = "menu" style="vertical-align: bottom;"><a href="URWeb/view/templates/tw.html" target="_blank">Contact</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="URWeb/view/templates/aboutus.html" target="_blank">Despre noi</a></td></tr>
     </table>
   </body>
 </html>
