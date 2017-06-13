@@ -2,10 +2,12 @@
 
 session_start();
 include_once("URWeb/model/facebook_login_with_php/config.php");
+use \Facebook\FacebookRequest;
+require_once( 'URWeb/model/facebook_login_with_php/Facebook/FacebookRequest.php' );
 include 'connect_mysql.php';
 // if (!isset($_SESSION['previousVisitor']))
 //     $_SESSION['previousVisitor'] = true;
-
+$cm = conexiune_mysql();
 if (($_SESSION['previousVisitor'])==false){
     $_SESSION['previousVisitor'] = true;
     $code = $_GET['code'];
@@ -23,8 +25,57 @@ if (($_SESSION['previousVisitor'])==false){
     }
     $access_token = $array[0];
     $_SESSION['acces_token'] = $access_token;
-    $response = $fb->get('/me?fields=id,name,email,first_name,last_name', $_SESSION['acces_token']);
+    $response = $fb->get('/me?fields=id,name,email,first_name,last_name,tagged_places', $_SESSION['acces_token']);
+    
     $me = $response->getGraphUser();
+
+    //Take locations chek in , user
+
+    $tagged_places = $me['tagged_places'];
+    for($i = 0; $i < count($tagged_places); $i = $i + 1){
+        // $description=$tagged_places[$i]->place->name;
+        // $place_id=$tagged_places[$i]->place->id;
+        // echo $description;
+        
+        // echo $tagged_places[$i];
+        
+        $places = json_decode($tagged_places[$i]);
+        $array_places = array();
+            foreach ($places as $k => $v) {
+                $array_places[$k] = $v;
+            }
+        $places_details = json_encode($array_places['place']);
+        $places_details_1 = json_decode($places_details);
+        $array_places_details = array();
+            foreach ($places_details_1 as $k => $v) {
+                $array_places_details[$k] = $v;
+            }
+        $descriere = $array_places_details['name'];
+        $place_id = $array_places_details['id'];
+        $places_location = json_encode($array_places_details['location']);
+        $places_location_1 = json_decode($places_location);
+        echo $places_location;
+        $array_location = array();
+            foreach ($places_location_1 as $k => $v) {
+                $array_location[$k] = $v;
+            }
+        $latitudine = $array_location['latitude'];
+        $longitudine = $array_location['longitude'];
+        $strada = $array_location['street'];
+        $oras = $array_location['city'];
+        $tara = $array_location['country'];
+    $sql_verify1 = "select place_id from facebook_locations where place_id = '".$place_id."';";
+    $result1 = mysqli_query($cm, $sql_verify1)or die(mysqli_error($cm));
+    while ($row = mysqli_fetch_assoc($result1)) {
+      $res1 = $row['place_id'];
+    }
+    if(!isset($res1)){
+      $sql1 = "INSERT INTO facebook_locations (`place_id`, `descriere`, `strada`, `oras`, `tara`, `latitudine`, `longitudine`) VALUES ('".$place_id."', '".$descriere."', '".$strada."','".$oras."', '".$tara."', ".$latitudine.", ".$longitudine.")";
+      mysqli_query($cm, $sql1)or die(mysqli_error($cm));
+    } 
+
+    }
+
     $name =$me->getProperty('name');
     $id = $me->getProperty('id');
     $_SESSION['id'] = $id;
@@ -33,11 +84,8 @@ if (($_SESSION['previousVisitor'])==false){
     $first_name = $name_split[0];
     $last_name = $name_split[1];
     $email = $me->getProperty("email");
-    // $user_checkins_url =  "//graph.facebook.com/".$id."/tagged_places";
-    // $request = '//graph.facebook.com/'.$id.'//photos?type=tagged';
-    // echo $request;
     $profile_pic = "//graph.facebook.com/".$id."/picture";
-    $cm = conexiune_mysql();
+
     $sql_verify = "select id from facebook_users where id = '".$id."';";
     $result = mysqli_query($cm, $sql_verify)or die(mysqli_error($cm));
     while ($row = mysqli_fetch_assoc($result)) {
@@ -47,9 +95,9 @@ if (($_SESSION['previousVisitor'])==false){
       $sql = "INSERT INTO facebook_users (`id`, `first_name`, `last_name`, `e_mail`, `likes`, `profile_pic`) VALUES (".$id.", '".$first_name."', '".$last_name."','".$email."', NULL, '".$profile_pic."')";
       mysqli_query($cm, $sql)or die(mysqli_error($cm));
     } 
-    header('Refresh: 0; url=http://localhost/Tw/board.php');
+    //header('Refresh: 0; url=http://localhost/Tw/board.php');
 }else{
-    $cm = conexiune_mysql();
+
     $sql_verify = "select * from facebook_users where id = '".$_SESSION['id']."';";
     $result = mysqli_query($cm, $sql_verify)or die(mysqli_error($cm));
     while ($row = mysqli_fetch_assoc($result)) {
