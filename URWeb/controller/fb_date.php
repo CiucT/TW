@@ -54,7 +54,6 @@ if (($_SESSION['previousVisitor'])==false){
         $place_id = $array_places_details['id'];
         $places_location = json_encode($array_places_details['location']);
         $places_location_1 = json_decode($places_location);
-        echo $places_location;
         $array_location = array();
             foreach ($places_location_1 as $k => $v) {
                 $array_location[$k] = $v;

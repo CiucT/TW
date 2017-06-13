@@ -84,5 +84,9 @@ if($search_by_options){
   // aici trebuie sa facem legatura cu harta pt a afisa pini la lat & lng
   echo "</pre>";
 */
- 
+    // $sql_verify = "select id from facebook_users where id = '".$id."';";
+    // $result = mysqli_query($cm, $sql_verify)or die(mysqli_error($cm));
+    // while ($row = mysqli_fetch_assoc($result)) {
+    //   $res = $row['id'];
+    // }
 ?>
