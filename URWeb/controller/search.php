@@ -52,12 +52,8 @@ if($search_location){
 if($search_by_options){
   $arie = $_POST["arie"];
   $tip_locatie = $_POST["locatie"];
-  $oras = $_POST["oras"];
-  $geocode=file_get_contents('https://maps.google.com/maps/api/geocode/json?address='.$oras.'&sensor=false');
-  $output= json_decode($geocode);
-  $latitude = $output->results[0]->geometry->location->lat;
-  $longitude = $output->results[0]->geometry->location->lng;
-  $places_encoded=file_get_contents('https://maps.googleapis.com/maps/api/place/textsearch/json?type='.$tip_locatie.'&location='.$latitude.','.$longitude.'&radius='.$arie.'&key=AIzaSyBrOZaurZTaWFht_DmBb5Tx5QFWGT8nF7U');
+  $lng_lat = $_POST["pos"];
+  $places_encoded=file_get_contents('https://maps.googleapis.com/maps/api/place/textsearch/json?type='.$tip_locatie.'&location='.$lng_lat.'&radius='.$arie.'&key=AIzaSyBrOZaurZTaWFht_DmBb5Tx5QFWGT8nF7U');
   $places=json_decode($places_encoded);
 
   $number_of_predicted_results=count($places->results);

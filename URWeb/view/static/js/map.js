@@ -36,6 +36,15 @@ function initMap() {
 
             mrks.push(pos);
             map.setCenter(mrks[mrks.length-1]);
+            $.ajax({
+                type: "POST",
+                url: 'search.php',
+                data: "pos=" + pos,
+                success: function(data)
+                {
+                    console.log(data);
+                }
+            });
 
               //pinul rosu ( marker) locatia noasta
               map.setZoom(12);
@@ -271,14 +280,24 @@ function initMap() {
                 destination: mrks[1],
                 travelMode: 'DRIVING'
               };
-
+              console.log(mrks[1]);
               directionsService.route(request,function(result,status){
                 if(status=="OK"){
                   directionsDisplay.setDirections(result);
                 for(i=0;i<php_locations.length;i++){
                   if(php_locations[i].loc==mrks[1]){
-                    var id = php_locations[i].id;
-                     }
+                    var id_loc = php_locations[i].id;
+                    console.log(id_loc);
+                    $.ajax({
+                        type: "POST",
+                        url: '../../../controller/introducere_cautari.php',
+                        data: "id_loc=" + id_loc,
+                        success: function(data)
+                        {
+                            console.log(data);
+                        }
+                    });
+                    }
                   }
                 }
               });

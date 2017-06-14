@@ -2,7 +2,7 @@
 //error_reporting(0);
 include_once("URWeb/controller/fb_date.php");
 include_once("URWeb/controller/search.php");
-// include_once("URWeb/controller/introducere_cautari.php");
+include_once("URWeb/controller/introducere_cautari.php");
 ?>
 <!DOCTYPE html>
 <html>

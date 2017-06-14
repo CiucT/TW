@@ -1,9 +1,10 @@
 <?php
 include_once("URWeb/controller/search.php");
   $php_locations = json_encode($Locations->locations);
-  echo $_COOKIE["id_locatie"];
- if(isset($_COOKIE["id_locatie"])){
- $location = $_COOKIE["id_locatie"];
+  echo $_POST['id_loc'];
+  if(isset($_POST['id_loc']))
+  {
+      $location = $_POST['id_loc'];
   for ($i = 0; $i < count($php_locations); $i++) {
     if($Locations->locations[$i]->id==$location){
       $sql_verify = "select user_id from sugestii_locatie where user_id = '".$_SESSION['id']."' and place_id = '".$Locations->locations[$i]->place_id."';";
