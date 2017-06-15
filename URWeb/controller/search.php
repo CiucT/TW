@@ -80,10 +80,8 @@ if($search_by_options){
 }
 if($facebook_locations){
   $sql = "select place_id, descriere, strada, latitudine, longitudine from facebook_locations where user_id = '".$_SESSION['id']."';";
-  echo $sql;
   $result = mysqli_query($cm, $sql)or die(mysqli_error($cm));
   while ($row = mysqli_fetch_assoc($result)) {
-    echo $row['place_id'];
     $location=new Location();
     $location->id = $row['place_id'];
     $location->place_id = $row['place_id'];
