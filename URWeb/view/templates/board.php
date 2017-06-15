@@ -3,6 +3,8 @@
 include_once("URWeb/controller/fb_date.php");
 include_once("URWeb/controller/search.php");
 include_once("URWeb/controller/introducere_cautari.php");
+echo $_REQUEST['lng'];
+echo $_REQUEST['id_loc'];
 ?>
 <!DOCTYPE html>
 <html>
@@ -13,6 +15,8 @@ include_once("URWeb/controller/introducere_cautari.php");
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
       <link rel="stylesheet" href="URWeb/view/static/css/board.css" />
+      <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.js"></script> 
+      <script src="http://malsup.github.com/jquery.form.js"></script> 
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -56,7 +60,7 @@ function pop_up(url){
       </tr>
       <tr>
         <td class = "menu" height="40"> </td>
-        <td colspan="2" rowspan="5" class="border-radius"><div id="map"></div></td>
+        <td colspan="2" rowspan="6" class="border-radius"><div id="map"></div></td>
       </tr>
       <tr><td class = "menu" height="40"></td></tr>
       <form action="board.php" method = "POST">
@@ -99,7 +103,12 @@ function pop_up(url){
             </ul>
             </br></br>
         <input type="submit" value="Cauta" name="submit_cauta_dupa_optiuni" style="background-color: #1f3251">
+        <div> or </div>
         </form>
+      </td></tr>
+      <tr><td class = "menu" height="40"><form action="board.php" method="post">
+                  <input type="submit" value="Afiseaza locatiile de pe Facebook" name="facebook_locations" style="background-color: #1f3251">
+              </form>
       </td></tr>
       <tr><td class = "menu" style="vertical-align: bottom;"><a href="URWeb/view/templates/tw.html" target="_blank">Contact</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="URWeb/view/templates/aboutus.html" target="_blank">Despre noi</a></td></tr>
     </table>

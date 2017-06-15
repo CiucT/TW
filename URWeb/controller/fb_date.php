@@ -5,8 +5,7 @@ include_once("URWeb/model/facebook_login_with_php/config.php");
 use \Facebook\FacebookRequest;
 require_once( 'URWeb/model/facebook_login_with_php/Facebook/FacebookRequest.php' );
 include 'connect_mysql.php';
-// if (!isset($_SESSION['previousVisitor']))
-//     $_SESSION['previousVisitor'] = true;
+
 $cm = conexiune_mysql();
 if (($_SESSION['previousVisitor'])==false){
     $_SESSION['previousVisitor'] = true;
@@ -28,6 +27,7 @@ if (($_SESSION['previousVisitor'])==false){
     $response = $fb->get('/me?fields=id,name,email,first_name,last_name,tagged_places', $_SESSION['acces_token']);
     
     $me = $response->getGraphUser();
+    $id = $me->getProperty('id');
 
     //Take locations chek in , user
 
@@ -69,14 +69,13 @@ if (($_SESSION['previousVisitor'])==false){
       $res1 = $row['place_id'];
     }
     if(!isset($res1)){
-      $sql1 = "INSERT INTO facebook_locations (`place_id`, `descriere`, `strada`, `oras`, `tara`, `latitudine`, `longitudine`) VALUES ('".$place_id."', '".$descriere."', '".$strada."','".$oras."', '".$tara."', ".$latitudine.", ".$longitudine.")";
+      $sql1 = "INSERT INTO facebook_locations (`user_id`,`place_id`, `descriere`, `strada`, `oras`, `tara`, `latitudine`, `longitudine`) VALUES ('".$id."','".$place_id."', '".$descriere."', '".$strada."','".$oras."', '".$tara."', ".$latitudine.", ".$longitudine.")";
       mysqli_query($cm, $sql1)or die(mysqli_error($cm));
     } 
 
     }
 
     $name =$me->getProperty('name');
-    $id = $me->getProperty('id');
     $_SESSION['id'] = $id;
     $output = ' ' . $name;
     $name_split = explode(" ", $name);
@@ -94,7 +93,7 @@ if (($_SESSION['previousVisitor'])==false){
       $sql = "INSERT INTO facebook_users (`id`, `first_name`, `last_name`, `e_mail`, `likes`, `profile_pic`) VALUES (".$id.", '".$first_name."', '".$last_name."','".$email."', NULL, '".$profile_pic."')";
       mysqli_query($cm, $sql)or die(mysqli_error($cm));
     } 
-    //header('Refresh: 0; url=http://localhost/Tw/board.php');
+    header('Refresh: 0; url=http://localhost/Tw/board.php');
 }else{
 
     $sql_verify = "select * from facebook_users where id = '".$_SESSION['id']."';";

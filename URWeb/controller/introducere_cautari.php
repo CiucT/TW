@@ -1,5 +1,6 @@
 <?php
-include_once("URWeb/controller/search.php");
+include_once("search.php");
+
   $php_locations = json_encode($Locations->locations);
   echo $_POST['id_loc'];
   if(isset($_POST['id_loc']))

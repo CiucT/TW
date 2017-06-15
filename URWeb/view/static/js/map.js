@@ -13,7 +13,7 @@ var id;
 
 function initMap() {
 
-
+    var infoWindow = new google.maps.InfoWindow();
     var directionsDisplay=new google.maps.DirectionsRenderer();
     var directionsService=new google.maps.DirectionsService();
     var myLatLng = {lat: 45.943161, lng:24.96676}; //Romania
@@ -37,12 +37,18 @@ function initMap() {
             mrks.push(pos);
             map.setCenter(mrks[mrks.length-1]);
             $.ajax({
+                url: 'board.php',
                 type: "POST",
-                url: 'search.php',
-                data: "pos=" + pos,
+                data: {
+                  'lat':position.coords.latitude,
+                  'lng':position.coords.longitude},
+                datatype: 'json',
                 success: function(data)
                 {
-                    console.log(data);
+                  console.log(data);
+                },
+                error: function(request, status, error){
+                    console.log("Error:"+error);
                 }
             });
 
@@ -288,15 +294,17 @@ function initMap() {
                   if(php_locations[i].loc==mrks[1]){
                     var id_loc = php_locations[i].id;
                     console.log(id_loc);
-                    $.ajax({
-                        type: "POST",
-                        url: '../../../controller/introducere_cautari.php',
-                        data: "id_loc=" + id_loc,
-                        success: function(data)
-                        {
-                            console.log(data);
-                        }
-                    });
+                    // $.ajax({
+                    //     type: "POST",
+                    //     url: 'URWeb/controller/introducere_cautari.php',
+                    //     data: {"id_loc":id_loc},
+                    //     dataType: 'text',
+                    //     success: function(data)
+                    //     {
+                    //         console.log(data);
+                    //     }
+                    // });
+                    // window.location.href = "board.php?id_loc=" + id_loc;
                     }
                   }
                 }
