@@ -28,29 +28,30 @@ function initMap() {
     // Try HTML5 geolocation.
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(function (position) {
+          // window.location.href = "board.php?lat=" + position.coords.latitude;
             var pos = {
                 lat: position.coords.latitude,
                 lng: position.coords.longitude
             };
 
-
+            document.getElementById("lat").value = position.coords.latitude;
+            document.getElementById("lng").value = position.coords.longitude;
             mrks.push(pos);
             map.setCenter(mrks[mrks.length-1]);
-            $.ajax({
-                url: 'board.php',
-                type: "POST",
-                data: {
-                  'lat':position.coords.latitude,
-                  'lng':position.coords.longitude},
-                datatype: 'json',
-                success: function(data)
-                {
-                  console.log(data);
-                },
-                error: function(request, status, error){
-                    console.log("Error:"+error);
-                }
-            });
+            // $.ajax({
+            //     url: 'URWeb/controller/search.php',
+            //     type: "POST",
+            //     data: {
+            //       'lat':position.coords.latitude,
+            //       'lng':position.coords.longitude},
+            //     success: function(data)
+            //     {
+            //       console.log(data);
+            //     },
+            //     error: function(request, status, error){
+            //         console.log("Error:"+error);
+            //     }
+            // });
 
               //pinul rosu ( marker) locatia noasta
               map.setZoom(12);
@@ -63,7 +64,6 @@ function initMap() {
               });
               markers_array[number_of_markers]=marker;
               number_of_markers++;
-
 
 
             //adaugam celelate locatii daca sunt
@@ -296,7 +296,7 @@ function initMap() {
                     console.log(id_loc);
                     // $.ajax({
                     //     type: "POST",
-                    //     url: 'URWeb/controller/introducere_cautari.php',
+                    //     url: 'board.php',
                     //     data: {"id_loc":id_loc},
                     //     dataType: 'text',
                     //     success: function(data)
@@ -305,6 +305,7 @@ function initMap() {
                     //     }
                     // });
                     // window.location.href = "board.php?id_loc=" + id_loc;
+
                     }
                   }
                 }
@@ -318,6 +319,7 @@ function initMap() {
         // Browser doesn't support Geolocation
         handleLocationError(false, map.getCenter());
     }
+
 }
 
 

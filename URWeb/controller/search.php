@@ -26,6 +26,9 @@ class Locations{
 $Locations=new Locations();
 $search_location = (isset($_POST['search_box']) ? $_POST['search_box'] : null);
 $search_by_options = (isset($_POST['submit_cauta_dupa_optiuni']) ? $_POST['submit_cauta_dupa_optiuni'] : null);
+$lat = 0;
+$lng = 0;
+$locatia_mea = (isset($_POST['locatia_mea']) ? $_POST['locatia_mea'] : null);
 $facebook_locations = (isset($_POST['facebook_locations']) ? $_POST['facebook_locations'] : null);
 
 if($search_location){
@@ -49,20 +52,26 @@ if($search_location){
     array_push($Locations->locations,$location);
   }
 }
+if($locatia_mea){
+  global $lat;
+  global $lng;
+   $lat = $_POST["lat"];
+   $_SESSION['lat'] = $lat;
+   $lng = $_POST["lng"];
+   $_SESSION['lng'] = $lng;
+}
 
 if($search_by_options){
   $arie = $_POST["arie"];
   $tip_locatie = $_POST["locatie"];
-  $lng_lat = $_POST["pos"];
-  $places_details = json_encode($lng_lat);
-  $places_details_1 = json_decode($places_details);
-  $array_places_details = array();
-      foreach ($places_details_1 as $k => $v) {
-          $array_places_details[$k] = $v;
-  }
-  $places_encoded=file_get_contents('https://maps.googleapis.com/maps/api/place/textsearch/json?type='.$tip_locatie.'&location='.$array_places_details['lat'].','.$array_places_details['lng'].'&radius='.$arie.'&key=AIzaSyBrOZaurZTaWFht_DmBb5Tx5QFWGT8nF7U');
+  // $places_details = json_encode($lng_lat);
+  // $places_details_1 = json_decode($places_details);
+  // $array_places_details = array();
+  //     foreach ($places_details_1 as $k => $v) {
+  //         $array_places_details[$k] = $v;
+  // }
+  $places_encoded=file_get_contents('https://maps.googleapis.com/maps/api/place/textsearch/json?type='.$tip_locatie.'&location='.$_SESSION['lat'].','.$_SESSION['lng'].'&radius='.$arie.'&key=AIzaSyBrOZaurZTaWFht_DmBb5Tx5QFWGT8nF7U');
   $places=json_decode($places_encoded);
-  echo 'https://maps.googleapis.com/maps/api/place/textsearch/json?type='.$tip_locatie.'&location='.$array_places_details['lat'].','.$array_places_details['lng'].'&radius='.$arie.'&key=AIzaSyBrOZaurZTaWFht_DmBb5Tx5QFWGT8nF7U';
   $number_of_predicted_results=count($places->results);
   for ($i = 0; $i < $number_of_predicted_results; $i++) {
   $location=new Location();

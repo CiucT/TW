@@ -1,10 +1,11 @@
 <?php
-//error_reporting(0);
+error_reporting(0);
 include_once("URWeb/controller/fb_date.php");
 include_once("URWeb/controller/search.php");
 include_once("URWeb/controller/introducere_cautari.php");
-echo $_REQUEST['lng'];
-echo $_REQUEST['id_loc'];
+if(isset($_POST['id_loc'])){
+  echo $_POST['id_loc'];
+}
 ?>
 <!DOCTYPE html>
 <html>
@@ -21,7 +22,7 @@ echo $_REQUEST['id_loc'];
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <!--       <link rel="stylesheet" type="text/css" href="../static/css/board.css"> -->
-      <script async defer src="URWeb/view/static/js/map.js"></script>
+      <script src="URWeb/view/static/js/map.js"></script>
       <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBx-eHAzWip3GDruCiK3eRu5zsw7GZZ61w&callback=initMap"></script>
 <script>
 function pop_up(url){
@@ -62,7 +63,12 @@ function pop_up(url){
         <td class = "menu" height="40"> </td>
         <td colspan="2" rowspan="6" class="border-radius"><div id="map"></div></td>
       </tr>
-      <tr><td class = "menu" height="40"></td></tr>
+      <form action="board.php" method = "POST">
+      <tr><td class = "menu" height="40">
+      <input type='hidden' id='lat' name='lat' value='' class = "menu" height="40">
+      <input type='hidden' name='lng' id='lng' value='' class = "menu" height="40">
+      <input type="submit" value="Locatia mea" name="locatia_mea" style="background-color: #1f3251"></td></tr>
+      </form>
       <form action="board.php" method = "POST">
       <tr>
         <td class = "menu" height="40">
@@ -70,13 +76,13 @@ function pop_up(url){
             <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Arie de cautare<span class="caret"></span></button>
             <ul class="dropdown-menu">
                 <li>
-                  <input type="radio" name="arie" value="500" id="item1">500</input></br>
+                  <input type="radio" name="arie" value="5000" id="item1">0-5000</input></br>
                 </li>
                 <li>
-                  <input type="radio" name="arie" value="500" id="item2">5000</input></br>
+                  <input type="radio" name="arie" value="10000" id="item2">5001-10000</input></br>
                 </li>
                 <li>
-                  <input type="radio" name="arie" value="10000" id="item3">10000</input>
+                  <input type="radio" name="arie" value="15000" id="item3">>10000</input>
                 </li>
             </ul>
             </div>
@@ -103,11 +109,11 @@ function pop_up(url){
             </ul>
             </br></br>
         <input type="submit" value="Cauta" name="submit_cauta_dupa_optiuni" style="background-color: #1f3251">
-        <div> or </div>
+        <div></br> sau </br></div>
         </form>
       </td></tr>
       <tr><td class = "menu" height="40"><form action="board.php" method="post">
-                  <input type="submit" value="Afiseaza locatiile de pe Facebook" name="facebook_locations" style="background-color: #1f3251">
+                  </br><input type="submit" value="Afiseaza locatiile de pe Facebook" name="facebook_locations" style="background-color: #1f3251">
               </form>
       </td></tr>
       <tr><td class = "menu" style="vertical-align: bottom;"><a href="URWeb/view/templates/tw.html" target="_blank">Contact</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="URWeb/view/templates/aboutus.html" target="_blank">Despre noi</a></td></tr>
