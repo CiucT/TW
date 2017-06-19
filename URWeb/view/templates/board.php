@@ -3,9 +3,6 @@ error_reporting(0);
 include_once("URWeb/controller/fb_date.php");
 include_once("URWeb/controller/search.php");
 include_once("URWeb/controller/introducere_cautari.php");
-if(isset($_POST['id_loc'])){
-  echo $_POST['id_loc'];
-}
 ?>
 <!DOCTYPE html>
 <html>
@@ -23,6 +20,7 @@ if(isset($_POST['id_loc'])){
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <!--       <link rel="stylesheet" type="text/css" href="../static/css/board.css"> -->
       <script src="URWeb/view/static/js/map.js"></script>
+<!--       <script src="URWeb/view/static/js/ajax.js"></script> -->
       <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBx-eHAzWip3GDruCiK3eRu5zsw7GZZ61w&callback=initMap"></script>
 <script>
 function pop_up(url){
@@ -61,13 +59,13 @@ function pop_up(url){
       </tr>
       <tr>
         <td class = "menu" height="40"> </td>
-        <td colspan="2" rowspan="6" class="border-radius"><div id="map"></div></td>
+        <td colspan="2" rowspan="9" class="border-radius"><div id="map"></div></td>
       </tr>
       <form action="board.php" method = "POST">
-      <tr><td class = "menu" height="40">
-      <input type='hidden' id='lat' name='lat' value='' class = "menu" height="40">
-      <input type='hidden' name='lng' id='lng' value='' class = "menu" height="40">
-      <input type="submit" value="Locatia mea" name="locatia_mea" style="background-color: #1f3251"></td></tr>
+        <tr><td class = "menu" height="40">
+        <input type='hidden' id='lat' name='lat' value='' class = "menu" height="40">
+        <input type='hidden' name='lng' id='lng' value='' class = "menu" height="40">
+        <input type="submit" value="Locatia mea" name="locatia_mea" style="background-color: #1f3251"></td></tr>
       </form>
       <form action="board.php" method = "POST">
       <tr>
@@ -90,7 +88,7 @@ function pop_up(url){
       </tr>
       <tr><td class = "menu" height="45"><div class="dropdown">
             <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Locatii<span class="caret"></span></button>
-            <ul class="dropdown-menu">
+            <ul class="dropdown-menu" id="types">
                 <li>
                   <input type="radio" name="locatie" value="restaurant" id="item1">Restaurante</input></br>
                 </li>
@@ -107,15 +105,39 @@ function pop_up(url){
                   <input type="radio" name="locatie" value="grocery_or_supermarket" id="item3">Centru comercial</input>
                 </li>
             </ul>
-            </br></br>
+            </td></tr>
+            <tr><td class = "menu" height="40">
         <input type="submit" value="Cauta" name="submit_cauta_dupa_optiuni" style="background-color: #1f3251">
         <div></br> sau </br></div>
+        </td></tr>
         </form>
       </td></tr>
       <tr><td class = "menu" height="40"><form action="board.php" method="post">
                   </br><input type="submit" value="Afiseaza locatiile de pe Facebook" name="facebook_locations" style="background-color: #1f3251">
               </form>
       </td></tr>
+            <form action="board.php" method = "POST">
+      <tr>
+        <td class = "menu" height="45">
+        <div class="dropdown" id='hidden'>
+            <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Sugestii in apropiere<span class="caret"></span></button>
+            <ul class="dropdown-menu">
+              <li>
+                <input type="hidden" id='latlng' name='latlng' value='47.1045952,27.5595864' class = "menu" height="40">
+                <input type="radio" name="sugestie" value="restaurant" id="item3">Restaurante</input>
+              </li>
+              <li>
+                <input type="radio" name="sugestie" value="hotel" id="item3">Hoteluri</input>
+              </li>
+              <li>
+                <input type="radio" name="sugestie" value="bar" id="item3">Baruri si localuri</input>
+              </li>
+            </ul>
+        </div>
+      </td></tr>
+      <tr><td class = "menu" height="40">
+      <input  id='hidden' type="submit" value="Afiseaza sugestii" name="afiseaza_sugestii" style="background-color: #1f3251"></td></tr>
+      </form>
       <tr><td class = "menu" style="vertical-align: bottom;"><a href="URWeb/view/templates/tw.html" target="_blank">Contact</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="URWeb/view/templates/aboutus.html" target="_blank">Despre noi</a></td></tr>
     </table>
   </body>

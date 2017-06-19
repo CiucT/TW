@@ -270,6 +270,7 @@ function initMap() {
             console.log(mrks);
             var calculateRoute=function(id){
               mrks[1]=mrks[id];
+              ocument.getElementById("latlng").value = mrks[1].lat + ',' + mrks[1].lng;
               for(i=2;i<number_of_markers;i++){
                 if(markers_array[i].id!=id){
                   //markers_array[i].setVisible(false);
