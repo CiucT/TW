@@ -3,6 +3,7 @@ error_reporting(0);
 include_once("URWeb/controller/fb_date.php");
 include_once("URWeb/controller/search.php");
 include_once("URWeb/controller/introducere_cautari.php");
+include_once("URWeb/controller/navigator.php");
 ?>
 <!DOCTYPE html>
 <html>
@@ -19,6 +20,7 @@ include_once("URWeb/controller/introducere_cautari.php");
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <!--       <link rel="stylesheet" type="text/css" href="../static/css/board.css"> -->
+      <script async defer src="URWeb/view/static/js/navigating.js"></script>
       <script src="URWeb/view/static/js/map.js"></script>
 <!--       <script src="URWeb/view/static/js/ajax.js"></script> -->
       <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBx-eHAzWip3GDruCiK3eRu5zsw7GZZ61w&callback=initMap"></script>
@@ -59,7 +61,7 @@ function pop_up(url){
       </tr>
       <tr>
         <td class = "menu" height="40"> </td>
-        <td colspan="2" rowspan="9" class="border-radius"><div id="map"></div></td>
+        <td colspan="2" rowspan="10" class="border-radius"><div id="map"></div></td>
       </tr>
       <form action="board.php" method = "POST">
         <tr><td class = "menu" height="40">
@@ -138,7 +140,15 @@ function pop_up(url){
       <tr><td class = "menu" height="40">
       <input  id='hidden' type="submit" value="Afiseaza sugestii" name="afiseaza_sugestii" style="background-color: #1f3251"></td></tr>
       </form>
+
+      <tr><td class = "menu" height="40">
+        <table id="navig">
+
+        </table>  
+
+      </td></tr>
       <tr><td class = "menu" style="vertical-align: bottom;"><a href="URWeb/view/templates/tw.html" target="_blank">Contact</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="URWeb/view/templates/aboutus.html" target="_blank">Despre noi</a></td></tr>
     </table>
+
   </body>
 </html>

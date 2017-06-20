@@ -22,6 +22,11 @@
  	$Step->end=$navigator->routes[0]->legs[0]->steps[$i]->end_location;
  	$Step->instructions=$navigator->routes[0]->legs[0]->steps[$i]->html_instructions;
  	$Navigate->step[]= $Step;
+ 	//echo $Step->instructions;
  }
- echo json_encode($Navigate);
+
+ 	for($i=0;$i<$steps;$i++){
+ 		echo json_encode($Navigate->step[$i]->instructions);
+ 		echo "\n";
+ 	}
 ?>

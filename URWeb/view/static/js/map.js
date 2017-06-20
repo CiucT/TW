@@ -17,10 +17,12 @@ function reqListener () {
 
 function initMap() {
 
-//var len = localStorage.length;
-//var old_key=len-1;
-//key=old_key+1;
-//console.log(key);
+var len = localStorage.length;
+var old_key=len-1;
+key=old_key+1;
+console.log(key);
+
+//if(get(key)===null){}else{map=get(key);}
 
 
 
@@ -107,9 +109,9 @@ function sendDataToPHP(origin_lat,origin_lng,destination_lat,destination_lng){
   positions.push(parseFloat(origin_lng).toString());
   positions.push(parseFloat(destination_lat).toString());
   positions.push(parseFloat(destination_lng).toString());
-  //put(key,map);
+  put(key,map);
   console.log("TRIMIT");
-  window.location.href = "navigator.php?positions="+ positions; 
+  window.location.href = "board.php?positions="+ positions; 
 
 }
 
@@ -357,9 +359,9 @@ var calculateRoute=function(id){
               console.log(mrks[1]);
               directionsService.route(request,function(result,status){
                 if(status=="OK"){
-          directionsDisplay.setDirections(result);
-                  //console.log("AM PUS PIN SI RUTA TRIMID DATA LA ALT PHP");
-                  //sendDataToPHP(mrks[0].lat,mrks[0].lng,mrks[1].lat,mrks[1].lng);
+                  directionsDisplay.setDirections(result);
+                  
+                  sendDataToPHP(mrks[0].lat,mrks[0].lng,mrks[1].lat,mrks[1].lng);
 
                 for(i=0;i<php_locations.length;i++){
                   if(php_locations[i].loc==mrks[1]){
