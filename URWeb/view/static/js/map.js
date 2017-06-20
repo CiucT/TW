@@ -1,28 +1,48 @@
 
-function reqListener () {
-  console.log(this.responseText);
-}
-
+var key=0;
+var map;
 var mrks=new Array();
 var markers_array=new Array();
 var number_of_markers=0;
 var markers_id_array=new Array();
 var data;
 var id;
+var infoWindow;
+var directionsDisplay;
+ var directionsService;
 
+function reqListener () {
+  console.log(this.responseText);
+}
 
 function initMap() {
 
-    var infoWindow = new google.maps.InfoWindow();
-    var directionsDisplay=new google.maps.DirectionsRenderer();
-    var directionsService=new google.maps.DirectionsService();
+//var len = localStorage.length;
+//var old_key=len-1;
+//key=old_key+1;
+//console.log(key);
+
+
+
+
+
+
+
+    infoWindow = new google.maps.InfoWindow();
+    directionsDisplay=new google.maps.DirectionsRenderer();
+    directionsService=new google.maps.DirectionsService();
     var myLatLng = {lat: 45.943161, lng:24.96676}; //Romania
 
-    var map = new google.maps.Map(document.getElementById('map'), {
+    map = new google.maps.Map(document.getElementById('map'), {
         center:myLatLng,
         zoom: 6,
     });
+
+  
     directionsDisplay.setMap(map);
+
+
+
 
     mrks=[];
     // Try HTML5 geolocation.
@@ -64,9 +84,49 @@ function initMap() {
               });
               markers_array[number_of_markers]=marker;
               number_of_markers++;
+        
+        populateMap();
+
+        }, function () {
+            handleLocationError(true, map.getCenter());
+        });
+    } else {
+        // Browser doesn't support Geolocation
+        handleLocationError(false, map.getCenter());
+    }
+  
+  
+  
+  
+
+}
+
+function sendDataToPHP(origin_lat,origin_lng,destination_lat,destination_lng){
+  var positions=new Array();
+  positions.push(parseFloat(origin_lat).toString());
+  positions.push(parseFloat(origin_lng).toString());
+  positions.push(parseFloat(destination_lat).toString());
+  positions.push(parseFloat(destination_lng).toString());
+  //put(key,map);
+  console.log("TRIMIT");
+  window.location.href = "navigator.php?positions="+ positions; 
+
+}
 
 
-            //adaugam celelate locatii daca sunt
+
+function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+    infoWindow.setPosition(pos);
+    infoWindow.setContent(browserHasGeolocation ?
+        'Error: The Geolocation service failed.' :
+        'Error: Your browser doesn\'t support geolocation.');
+}
+
+
+//adaugam celelate locatii daca sunt
+function populateMap(){
+
+
             for(i=0;i<php_locations.length;i++){
               mrks.push(php_locations[i].loc);
               var marker= new google.maps.Marker({
@@ -76,7 +136,7 @@ function initMap() {
                   map: map,
                   title: php_locations[i].description
               });
-              //marker.setVisible(true);
+              
               markers_array[number_of_markers]=marker;
               markers_id_array[i]=marker.id;
               switch (number_of_markers) {
@@ -96,13 +156,13 @@ function initMap() {
                   break;
                 case 8:google.maps.event.addListener(markers_array[8], 'click', function(point) {calculateRoute(8)});
                   break;
-				case 9:google.maps.event.addListener(markers_array[9], 'click', function(point) {calculateRoute(9)});
+        case 9:google.maps.event.addListener(markers_array[9], 'click', function(point) {calculateRoute(9)});
                   break;
                 case 10:google.maps.event.addListener(markers_array[10], 'click', function(point) {calculateRoute(10)});
                   break;
                 case 11:google.maps.event.addListener(markers_array[11], 'click', function(point) {calculateRoute(11)});
                   break;
-                case	12:google.maps.event.addListener(markers_array[12], 'click', function(point) {calculateRoute(12)});
+                case  12:google.maps.event.addListener(markers_array[12], 'click', function(point) {calculateRoute(12)});
                   break;
                 case 13:google.maps.event.addListener(markers_array[13], 'click', function(point) {calculateRoute(13)});
                   break;
@@ -112,15 +172,15 @@ function initMap() {
                   break;
                 case 16:google.maps.event.addListener(markers_array[16], 'click', function(point) {calculateRoute(16)});
                   break;
-				case 17:google.maps.event.addListener(markers_array[17], 'click', function(point) {calculateRoute(17)});
+        case 17:google.maps.event.addListener(markers_array[17], 'click', function(point) {calculateRoute(17)});
                   break;
-	            case 18:google.maps.event.addListener(markers_array[18], 'click', function(point) {calculateRoute(18)});
+              case 18:google.maps.event.addListener(markers_array[18], 'click', function(point) {calculateRoute(18)});
                   break;
-				case 19:google.maps.event.addListener(markers_array[19], 'click', function(point) {calculateRoute(19)});
+        case 19:google.maps.event.addListener(markers_array[19], 'click', function(point) {calculateRoute(19)});
                   break;
-				case 20:google.maps.event.addListener(markers_array[20], 'click', function(point) {calculateRoute(20)});
+        case 20:google.maps.event.addListener(markers_array[20], 'click', function(point) {calculateRoute(20)});
                   break;
-				case 21:google.maps.event.addListener(markers_array[21], 'click', function(point) {calculateRoute(21)});
+        case 21:google.maps.event.addListener(markers_array[21], 'click', function(point) {calculateRoute(21)});
                   break;
                 case 22:google.maps.event.addListener(markers_array[22], 'click', function(point) {calculateRoute(22)});
                   break;
@@ -136,11 +196,11 @@ function initMap() {
                   break;
                 case 28:google.maps.event.addListener(markers_array[28], 'click', function(point) {calculateRoute(28)});
                   break;
-				case 29:google.maps.event.addListener(markers_array[29], 'click', function(point) {calculateRoute(29)});
+        case 29:google.maps.event.addListener(markers_array[29], 'click', function(point) {calculateRoute(29)});
                   break;
-				case 30:google.maps.event.addListener(markers_array[30], 'click', function(point) {calculateRoute(30)});
+        case 30:google.maps.event.addListener(markers_array[30], 'click', function(point) {calculateRoute(30)});
                   break;
-				case 31:google.maps.event.addListener(markers_array[31], 'click', function(point) {calculateRoute(31)});
+        case 31:google.maps.event.addListener(markers_array[31], 'click', function(point) {calculateRoute(31)});
                   break;
                 case 32:google.maps.event.addListener(markers_array[32], 'click', function(point) {calculateRoute(32)});
                   break;
@@ -156,11 +216,11 @@ function initMap() {
                   break;
                 case 38:google.maps.event.addListener(markers_array[38], 'click', function(point) {calculateRoute(38)});
                   break;
-				case 39:google.maps.event.addListener(markers_array[39], 'click', function(point) {calculateRoute(39)});
-					break;
-				case 40:google.maps.event.addListener(markers_array[40], 'click', function(point) {calculateRoute(40)});
+        case 39:google.maps.event.addListener(markers_array[39], 'click', function(point) {calculateRoute(39)});
+          break;
+        case 40:google.maps.event.addListener(markers_array[40], 'click', function(point) {calculateRoute(40)});
                   break;
-				case 41:google.maps.event.addListener(markers_array[41], 'click', function(point) {calculateRoute(41)});
+        case 41:google.maps.event.addListener(markers_array[41], 'click', function(point) {calculateRoute(41)});
                   break;
                 case 42:google.maps.event.addListener(markers_array[42], 'click', function(point) {calculateRoute(42)});
                   break;
@@ -176,11 +236,11 @@ function initMap() {
                   break;
                 case 48:google.maps.event.addListener(markers_array[48], 'click', function(point) {calculateRoute(48)});
                   break;
-				case 49:google.maps.event.addListener(markers_array[49], 'click', function(point) {calculateRoute(49)});
-					break;
-				case 50:google.maps.event.addListener(markers_array[50], 'click', function(point) {calculateRoute(50)});
-					break;
-				case 51:google.maps.event.addListener(markers_array[51], 'click', function(point) {calculateRoute(51)});
+        case 49:google.maps.event.addListener(markers_array[49], 'click', function(point) {calculateRoute(49)});
+          break;
+        case 50:google.maps.event.addListener(markers_array[50], 'click', function(point) {calculateRoute(50)});
+          break;
+        case 51:google.maps.event.addListener(markers_array[51], 'click', function(point) {calculateRoute(51)});
                   break;
                 case 52:google.maps.event.addListener(markers_array[52], 'click', function(point) {calculateRoute(52)});
                   break;
@@ -196,11 +256,11 @@ function initMap() {
                   break;
                 case 58:google.maps.event.addListener(markers_array[58], 'click', function(point) {calculateRoute(58)});
                   break;
-				case 59:google.maps.event.addListener(markers_array[59], 'click', function(point) {calculateRoute(59)});
+        case 59:google.maps.event.addListener(markers_array[59], 'click', function(point) {calculateRoute(59)});
                   break;
-				case 60:google.maps.event.addListener(markers_array[60], 'click', function(point) {calculateRoute(60)});
+        case 60:google.maps.event.addListener(markers_array[60], 'click', function(point) {calculateRoute(60)});
                   break;
-				case 61:google.maps.event.addListener(markers_array[61], 'click', function(point) {calculateRoute(61)});
+        case 61:google.maps.event.addListener(markers_array[61], 'click', function(point) {calculateRoute(61)});
                   break;
                 case 62:google.maps.event.addListener(markers_array[62], 'click', function(point) {calculateRoute(62)});
                   break;
@@ -216,11 +276,11 @@ function initMap() {
                   break;
                 case 68:google.maps.event.addListener(markers_array[68], 'click', function(point) {calculateRoute(68)});
                   break;
-				case 69:google.maps.event.addListener(markers_array[69], 'click', function(point) {calculateRoute(69)});
+        case 69:google.maps.event.addListener(markers_array[69], 'click', function(point) {calculateRoute(69)});
                   break;
-				case 70:google.maps.event.addListener(markers_array[70], 'click', function(point) {calculateRoute(70)});
+        case 70:google.maps.event.addListener(markers_array[70], 'click', function(point) {calculateRoute(70)});
                   break;
-				case 71:google.maps.event.addListener(markers_array[71], 'click', function(point) {calculateRoute(71)});
+        case 71:google.maps.event.addListener(markers_array[71], 'click', function(point) {calculateRoute(71)});
                   break;
                 case 72:google.maps.event.addListener(markers_array[72], 'click', function(point) {calculateRoute(72)});
                   break;
@@ -236,11 +296,11 @@ function initMap() {
                   break;
                 case 78:google.maps.event.addListener(markers_array[78], 'click', function(point) {calculateRoute(78)});
                   break;
-				case 79:google.maps.event.addListener(markers_array[79], 'click', function(point) {calculateRoute(79)});
+        case 79:google.maps.event.addListener(markers_array[79], 'click', function(point) {calculateRoute(79)});
                   break;
-				case 80:google.maps.event.addListener(markers_array[80], 'click', function(point) {calculateRoute(80)});
+        case 80:google.maps.event.addListener(markers_array[80], 'click', function(point) {calculateRoute(80)});
                   break;
-				case 81:google.maps.event.addListener(markers_array[81], 'click', function(point) {calculateRoute(81)});
+        case 81:google.maps.event.addListener(markers_array[81], 'click', function(point) {calculateRoute(81)});
                   break;
                 case 82:google.maps.event.addListener(markers_array[82], 'click', function(point) {calculateRoute(82)});
                   break;
@@ -256,24 +316,31 @@ function initMap() {
                   break;
                 case 88:google.maps.event.addListener(markers_array[88], 'click', function(point) {calculateRoute(88)});
                   break;
-				case 89:google.maps.event.addListener(markers_array[89], 'click', function(point) {calculateRoute(89)});
+        case 89:google.maps.event.addListener(markers_array[89], 'click', function(point) {calculateRoute(89)});
                   break;
 
               }
-
+        
               number_of_markers++;
-            //marker.addListener('click',calculateRoute);
-
             }
+}
 
 
-            console.log(mrks);
-            var calculateRoute=function(id){
+var get = function (key) {
+  return window.localStorage ? window.localStorage[key] : null;
+}
+
+var put = function (key, value) {
+  if (window.localStorage) {
+    window.localStorage[key] = value;
+  }
+}
+
+var calculateRoute=function(id){
               mrks[1]=mrks[id];
-              ocument.getElementById("latlng").value = mrks[1].lat + ',' + mrks[1].lng;
+              document.getElementById("latlng").value = mrks[1].lat + ',' + mrks[1].lng;
               for(i=2;i<number_of_markers;i++){
                 if(markers_array[i].id!=id){
-                  //markers_array[i].setVisible(false);
                   markers_array[i].setMap(null);
                   mrks.splice(i, 1);
                 }
@@ -290,7 +357,10 @@ function initMap() {
               console.log(mrks[1]);
               directionsService.route(request,function(result,status){
                 if(status=="OK"){
-                  directionsDisplay.setDirections(result);
+          directionsDisplay.setDirections(result);
+                  //console.log("AM PUS PIN SI RUTA TRIMID DATA LA ALT PHP");
+                  //sendDataToPHP(mrks[0].lat,mrks[0].lng,mrks[1].lat,mrks[1].lng);
+
                 for(i=0;i<php_locations.length;i++){
                   if(php_locations[i].loc==mrks[1]){
                     var id_loc = php_locations[i].id;
@@ -312,22 +382,3 @@ function initMap() {
                 }
               });
             }
-
-        }, function () {
-            handleLocationError(true, map.getCenter());
-        });
-    } else {
-        // Browser doesn't support Geolocation
-        handleLocationError(false, map.getCenter());
-    }
-
-}
-
-
-
-function handleLocationError(browserHasGeolocation, infoWindow, pos) {
-    infoWindow.setPosition(pos);
-    infoWindow.setContent(browserHasGeolocation ?
-        'Error: The Geolocation service failed.' :
-        'Error: Your browser doesn\'t support geolocation.');
-}
